@@ -1,0 +1,24 @@
+New Features:
+* Feature: Added audio clip fields to the Destructible script, so it can play sounds when the object is damaged, repaired, or destroyed.
+* Feature: Added ability to scale Damage Effects prefabs on the Destructible script, much like how Fallback Particle Effect lets you override the scale on the Destructible script.
+* Feature: Added "Limit Damage" checkbox to Destructible script, so you can now specify Max and Min damage per hit, plus the minimum amount of time (in seconds) that must pass before the object can be damaged again. Really useful when you need rigidbody collisions to do a more predictable amount of damage.
+* Feature: Added a checkbox to DestructionManager that allows you to globally enable/disable damage to Destructible objects. This lets you turn on/off damage to destructible objects in one place.
+* Feature: Added Custom DestroyIt HDRP Lit shader and updated the DestroyIt User Guide on how to use it.
+* Feature: Fallback Particle Effects can now be set to Parent Under a transform. This is helpful for when you need the particle effect to follow along under a different game object.
+
+Minor Updates:
+* Updated: Code to work with Unity 2020.3.32f1 (LTS)
+* Re-centered the demo scenes so when they are opened for the first time (at world position 0,0,0) you see the scene correctly, instead of seeing a dark area with no terrain.
+* Removed the "DestroyIt-Ready" feature and removed the mentions of it in the User Guide PDF.
+* Added a ShockwaveSphere script, which is similar to the nuke's Shockwave Trigger Wall script, but this one moves out as a radius from the initial blast instead of as a wall.
+
+Bug Fixes:
+* Fixed: Damage Levels were not recalculating when totalHitPoints were modified at runtime through code. TotalHitPoints and CurrentHitPoints are now public properties with backing fields.
+* Fixed: DamageLevel hitpoint ranges are no longer cast to integers, which was causing an issue with destructible objects with very low hit points (ie, 5hp total with 5 damage levels) not progressing to the next damage level properly.
+* Fixed: Set ObjectPool container to inactive to prevent unwanted OnEnable events (such as destroyed sounds) when scene starts.
+* Fixed: ObjectPool no longer throws errors about "key already exists with that instance ID" when using nested prefab copies of Destructible objects.
+* Fixed: Moved the Particle Alpha (no fog) shader out of the "Demos (safe to delete)" folder, because the default particles use them and they are therefore required for the main DestroyIt asset. Now you can delete the Demos folder and not get pink textures on the default particle effects.
+* Fixed: Objects with DontDoDamage tag were doing damage to static destructible objects and destructible objects without rigidbodies.
+* Fixed: Issue with HitEffects where it was only playing the first effect found. Now plays all effects.
+* Fixed: Small issue with StructuralSupport script where it would only remove joints that had connected rigidbodies. Changed it so it removes all FixedJoints.
+
