@@ -10,6 +10,9 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera mapCamera;
 
 
+    public Transform projectileCameraRelative;
+
+
     [Header("Map Camera")]
     [SerializeField]
     private float _defaultMapCameraSize = 10.0f;
@@ -19,12 +22,18 @@ public class CameraManager : MonoBehaviour
     private float _minMapCameraSize = 5.0f;
 
 
-    private Vector3 _startingProjectileCamLocalPosition; 
+    private Vector3 _startingProjectileCamLocalPosition;
+    private Quaternion _startingProjectileCamLocalRotation;
 
 
     private void Start()
     {
+
+        projectileCamera.transform.SetParent(projectileCameraRelative);
         _startingProjectileCamLocalPosition = projectileCamera.transform.localPosition;
+        _startingProjectileCamLocalRotation = projectileCamera.transform.localRotation;
+        projectileCamera.transform.SetParent(null);
+
         SetLaunchCamera();
     }
 
@@ -32,6 +41,13 @@ public class CameraManager : MonoBehaviour
     {
         DisableAllCameras();
         launchCamera.enabled = true; 
+    }
+
+
+    public void SetMapCamera(Vector3 lookOver)
+    {
+        mapCamera.transform.position = new Vector3(lookOver.x, 500, lookOver.z);
+        SetMapCamera();
     }
 
     public void SetMapCamera()
@@ -55,7 +71,7 @@ public class CameraManager : MonoBehaviour
     public void SetProjectileCamera(Rigidbody follow)
     {
         projectileCamera.Follow = follow.transform;
-        projectileCamera.LookAt = follow.transform;
+        //projectileCamera.LookAt = follow.transform;
 
         //projectileCamera.transform.SetParent(follow.transform);
         //projectileCamera.transform.localPosition = _startingProjectileCamLocalPosition;
@@ -74,5 +90,11 @@ public class CameraManager : MonoBehaviour
         launchCamera.enabled = false;
         projectileCamera.enabled = false;
         mapCamera.enabled = false;
+
+
+        projectileCamera.transform.SetParent(projectileCameraRelative);
+        projectileCamera.transform.localPosition = _startingProjectileCamLocalPosition;
+        projectileCamera.transform.localRotation = _startingProjectileCamLocalRotation;
+        projectileCamera.transform.SetParent(null);
     }
 }

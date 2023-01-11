@@ -23,7 +23,9 @@ public class GameInputController : MonoBehaviour
     private float _scrollAddAmount = 20.0f; 
 
     [Header("Map Mode")]
-    private float _moveSpeed = 10.0f;
+    [SerializeField]
+    private float _moveSpeed = 30.0f;
+    [SerializeField]
     private float _resizeRate = 5000.0f;
 
     // Projectile mode
@@ -85,7 +87,7 @@ public class GameInputController : MonoBehaviour
             // Go to Map State
             if (Input.GetKeyDown(KeyCode.M))
             {
-                _camManager.SetMapCamera();
+                _camManager.SetMapCamera(_launchController.transform.position);
                 _curGameState = GameState.MAP;
             }
         }

@@ -11,7 +11,9 @@ public class Destroyer : MonoBehaviour
     public float minimumDestructionVelocity = 10.0f; 
 
     private SphereCollider collider;
-    private Rigidbody rb; 
+    private Rigidbody rb;
+
+    private HashSet<DestroyIt.Destructible> _alreadyHit;
 
     private void Awake()
     {
@@ -20,6 +22,8 @@ public class Destroyer : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         Debug.Assert(rb != null, "No RigidBody on Destroyer game object");
+
+        _alreadyHit = new HashSet<DestroyIt.Destructible>();
     }
 
     private void FixedUpdate()
@@ -49,12 +53,20 @@ public class Destroyer : MonoBehaviour
     {
         if (rb.velocity.magnitude > minimumDestructionVelocity)
         {
-            Destroyable destroyComponent = collideWith.GetComponent<Destroyable>();
+            DestroyIt.Destructible destroyComponent = collideWith.GetComponent<DestroyIt.Destructible>();
 
-            if (destroyComponent != null)
+            if (destroyComponent != null && !_alreadyHit.Contains(destroyComponent))
             {
-                E_OnDestroyObject.Invoke();
-                destroyComponent.Destroy();
+                _alreadyHit.Add(destroyComponent);
+
+                destroyComponent.ApplyDamage(rb.velocity.magnitude);
+
+                if (destroyComponent.IsDestroyed)
+                {
+                    E_OnDestroyObject.Invoke();
+
+                    FreezeFrameLogic.inst?.FreezeTime(.02f);
+                }
             }
         }
     }
