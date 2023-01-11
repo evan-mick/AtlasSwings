@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6656294571208269987}
   - component: {fileID: 6656294571208269996}
   - component: {fileID: 6656294571208269997}
+  - component: {fileID: 8592959445159025868}
+  - component: {fileID: 1152221269983570278}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -92,7 +94,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6656294571208269998}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8e19a01a3413b0a41966ff76d9fb0237, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -108,9 +110,38 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8592959445159025868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656294571208269998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36b9f6aba267b54bbd2608345642262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onDestroySlowDownAmount: 0.5
+--- !u!114 &1152221269983570278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656294571208269998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9dd3e03f925f5145b5780ec8cef6954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  E_OnDestroyObject:
+    m_PersistentCalls:
+      m_Calls: []
+  minimumDestructionVelocity: 10
