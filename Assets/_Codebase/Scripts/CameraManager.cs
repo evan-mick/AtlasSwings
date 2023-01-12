@@ -24,6 +24,7 @@ public class CameraManager : MonoBehaviour
 
     private Vector3 _startingProjectileCamLocalPosition;
     private Quaternion _startingProjectileCamLocalRotation;
+    private Rigidbody followRb;
 
 
     private void Start()
@@ -41,6 +42,15 @@ public class CameraManager : MonoBehaviour
     {
         DisableAllCameras();
         launchCamera.enabled = true; 
+    }
+
+    private void Update()
+    {
+        if (projectileCamera.LookAt != null && followRb != null)
+        {
+            //projectileCamera.transform.rotation.SetLookRotation(followRb.velocity.normalized);
+        }
+
     }
 
 
@@ -70,13 +80,15 @@ public class CameraManager : MonoBehaviour
 
     public void SetProjectileCamera(Rigidbody follow)
     {
+        SetProjectileCamera();
+
         projectileCamera.Follow = follow.transform;
-        //projectileCamera.LookAt = follow.transform;
+        projectileCamera.LookAt = follow.transform;
+
+        followRb = projectileCamera.LookAt.GetComponent<Rigidbody>();
 
         //projectileCamera.transform.SetParent(follow.transform);
         //projectileCamera.transform.localPosition = _startingProjectileCamLocalPosition;
-
-        SetProjectileCamera();
     }
 
     public void SetProjectileCamera()

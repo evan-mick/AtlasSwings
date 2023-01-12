@@ -394,30 +394,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
-  - maxHitPoints: 500
-    minHitPoints: 400.1
+  - maxHitPoints: 10
+    minHitPoints: 8.099999
     healthPercent: 100
     hasError: 0
     visibleDamageLevel: 0
-  - maxHitPoints: 400
-    minHitPoints: 300.1
+  - maxHitPoints: 8
+    minHitPoints: 6.1
     healthPercent: 80
     hasError: 0
     visibleDamageLevel: 2
-  - maxHitPoints: 300
-    minHitPoints: 200.09999
+  - maxHitPoints: 6
+    minHitPoints: 4.1
     healthPercent: 60
     hasError: 0
     visibleDamageLevel: 4
-  - maxHitPoints: 200
-    minHitPoints: 100.1
+  - maxHitPoints: 4
+    minHitPoints: 2.1
     healthPercent: 40
     hasError: 0
     visibleDamageLevel: 6
-  - maxHitPoints: 100
+  - maxHitPoints: 2
     minHitPoints: 0
     healthPercent: 20
     hasError: 0
@@ -568,30 +568,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
-  - maxHitPoints: 10
-    minHitPoints: 8.099999
+  - maxHitPoints: 500
+    minHitPoints: 400.1
     healthPercent: 100
     hasError: 0
     visibleDamageLevel: 0
-  - maxHitPoints: 8
-    minHitPoints: 6.1
+  - maxHitPoints: 400
+    minHitPoints: 300.1
     healthPercent: 80
     hasError: 0
     visibleDamageLevel: 2
-  - maxHitPoints: 6
-    minHitPoints: 4.1
+  - maxHitPoints: 300
+    minHitPoints: 200.09999
     healthPercent: 60
     hasError: 0
     visibleDamageLevel: 4
-  - maxHitPoints: 4
-    minHitPoints: 2.1
+  - maxHitPoints: 200
+    minHitPoints: 100.1
     healthPercent: 40
     hasError: 0
     visibleDamageLevel: 6
-  - maxHitPoints: 2
+  - maxHitPoints: 100
     minHitPoints: 0
     healthPercent: 20
     hasError: 0
@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 612499518}
   - component: {fileID: 612499519}
   - component: {fileID: 612499520}
+  - component: {fileID: 612499521}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -1037,19 +1038,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 612499517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 2
-  m_FollowOffset: {x: 0, y: 2.438, z: -11}
+  m_BindingMode: 5
+  m_FollowOffset: {x: 0, y: 6, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
   m_AngularDampingMode: 0
-  m_PitchDamping: 2
-  m_YawDamping: 1
+  m_PitchDamping: 0
+  m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_Heading:
+    m_Definition: 1
+    m_VelocityFilterStrength: 4
+    m_Bias: 0
+  m_RecenterToTargetHeading:
+    m_enabled: 0
+    m_WaitTime: 1
+    m_RecenteringTime: 2
+    m_LegacyHeadingDefinition: -1
+    m_LegacyVelocityFilterStrength: -1
+  m_XAxis:
+    Value: 0
+    m_SpeedMode: 0
+    m_MaxSpeed: 0
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: 
+    m_InputAxisValue: 0
+    m_InvertInput: 1
+    m_MinValue: -180
+    m_MaxValue: 180
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 1
+      m_RecenteringTime: 2
+      m_LegacyHeadingDefinition: -1
+      m_LegacyVelocityFilterStrength: -1
+  m_LegacyRadius: 3.4028235e+38
+  m_LegacyHeightOffset: 3.4028235e+38
+  m_LegacyHeadingBias: 3.4028235e+38
+  m_HeadingIsSlave: 0
+--- !u!114 &612499521
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612499517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_HorizontalDamping: 0.5
+  m_VerticalDamping: 0.5
+  m_ScreenX: 0.5
+  m_ScreenY: 0.7
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
 --- !u!1 &657002328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,8 +1291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -1546,8 +1606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -1792,8 +1852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -1880,15 +1940,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300855386}
-  m_LocalRotation: {x: -0.13052596, y: -0, z: -0, w: 0.99144495}
-  m_LocalPosition: {x: 0, y: 2.19, z: -11}
+  m_LocalRotation: {x: 0.10808566, y: -0.0000000029132952, z: 3.1674094e-10, w: 0.99414164}
+  m_LocalPosition: {x: 0, y: 5.752, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 612499518}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1300855388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,8 +1966,8 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 25
-  m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_StandbyUpdate: 0
+  m_LookAt: {fileID: 520846897}
   m_Follow: {fileID: 520846897}
   m_Lens:
     FieldOfView: 80
@@ -1920,7 +1980,7 @@ MonoBehaviour:
     GateFit: 2
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
-    m_BlendHint: 2
+    m_BlendHint: 0
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
@@ -2037,8 +2097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -2211,8 +2271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -2385,8 +2445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -2559,8 +2619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -3046,8 +3106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
@@ -3220,30 +3280,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
-  - maxHitPoints: 10
-    minHitPoints: 8.099999
+  - maxHitPoints: 500
+    minHitPoints: 400.1
     healthPercent: 100
     hasError: 0
     visibleDamageLevel: 0
-  - maxHitPoints: 8
-    minHitPoints: 6.1
+  - maxHitPoints: 400
+    minHitPoints: 300.1
     healthPercent: 80
     hasError: 0
     visibleDamageLevel: 2
-  - maxHitPoints: 6
-    minHitPoints: 4.1
+  - maxHitPoints: 300
+    minHitPoints: 200.09999
     healthPercent: 60
     hasError: 0
     visibleDamageLevel: 4
-  - maxHitPoints: 4
-    minHitPoints: 2.1
+  - maxHitPoints: 200
+    minHitPoints: 100.1
     healthPercent: 40
     hasError: 0
     visibleDamageLevel: 6
-  - maxHitPoints: 2
+  - maxHitPoints: 100
     minHitPoints: 0
     healthPercent: 20
     hasError: 0
@@ -3591,8 +3651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHitPoints: 500
-  _currentHitPoints: 500
+  _totalHitPoints: 10
+  _currentHitPoints: 10
   damageLevels:
   - maxHitPoints: 10
     minHitPoints: 8.099999
