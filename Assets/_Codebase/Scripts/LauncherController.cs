@@ -9,8 +9,6 @@ using UnityEngine;
 public class LauncherController : MonoBehaviour
 {
 
-    
-
     [SerializeField]
     private Transform _launchPoint;
 
@@ -39,7 +37,6 @@ public class LauncherController : MonoBehaviour
     public void TeleportToPoint(Vector3 point)
     {
         Vector3 movement = point - _teleportPoint.position;
-
         transform.position += movement; 
     }
 
