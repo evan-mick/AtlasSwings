@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 /// <summary>
@@ -25,7 +26,7 @@ public class LauncherController : MonoBehaviour
 
     private Rigidbody _currentBall;
 
-    public event System.Action OnLaunchAction;
+    public UnityEvent OnLaunchAction = new UnityEvent();
 
 
     // Update is called once per frame
@@ -45,6 +46,16 @@ public class LauncherController : MonoBehaviour
     public void AddRange(float toAdd)
     {
         _currentRange = Mathf.Clamp(_currentRange + toAdd, 0.01f, _maxRange);
+    }
+
+    public void SetRange(float toSet)
+    {
+        _currentRange = Mathf.Clamp(toSet, 0.01f, _maxRange);
+    }
+
+    public void SetRangeByPercent(float percent)
+    {
+        _currentRange = Mathf.Clamp(percent * _maxRange, 0.01f, _maxRange);
     }
 
 

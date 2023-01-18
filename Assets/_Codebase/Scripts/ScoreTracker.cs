@@ -24,7 +24,7 @@ public class ScoreTracker : MonoBehaviour
 
     public void SetLauncherSwingEvent()
     {
-        FindObjectOfType<LauncherController>().OnLaunchAction += AddSwingCount;
+        FindObjectOfType<LauncherController>().OnLaunchAction.AddListener(AddSwingCount);
     }
 
     public void AddBuildingDestroyed()

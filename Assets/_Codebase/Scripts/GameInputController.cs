@@ -20,7 +20,9 @@ public class GameInputController : MonoBehaviour
     [SerializeField]
     private float _rotateSpeed = 180.0f;
     [SerializeField]
-    private float _scrollAddAmount = 20.0f; 
+    private float _scrollAddAmount = 20.0f;
+    [SerializeField]
+    private ChargeUpController chargeUp; 
 
     [Header("Map Mode")]
     [SerializeField]
@@ -40,11 +42,7 @@ public class GameInputController : MonoBehaviour
 
     private GameState _curGameState = GameState.LAUNCH;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -55,33 +53,26 @@ public class GameInputController : MonoBehaviour
         // LAUNCH STATE
         if (_curGameState.Equals(GameState.LAUNCH))
         {
-            // Rotate Launch Controller
-            float xMove = Input.GetAxis("Mouse X");
-            _launchController.RotateLauncher(xMove * Time.deltaTime * _rotateSpeed);
-
-            // Add Range, TODO, MAKE THE CHARGE METER FOR THIS
-            float addRange = Input.GetAxis("Mouse ScrollWheel") * _scrollAddAmount * Time.deltaTime;
-            _launchController.AddRange(addRange);
-
 
             // Launch ball when ready
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Rigidbody follow = _launchController.LaunchProjectile();
-                _camManager.SetProjectileCamera(follow);
-                _curGameState = GameState.PROJECTILE;
+                chargeUp.StartCharge();
+            }
 
-                _launchController.SetTrajectoryVisible(false);
+            // Rotate Launch Controller
+            float xMove = Input.GetAxis("Horizontal");
+            _launchController.RotateLauncher(xMove * Time.deltaTime * _rotateSpeed);
 
-                follow.TryGetComponent<DestructiveProjectile>(out DestructiveProjectile projectile);
+            // Set Range by charge value
+            float setRange = chargeUp.CurrentValue; 
+                //Input.GetAxis("Mouse ScrollWheel") * _scrollAddAmount * Time.deltaTime;
+            _launchController.SetRangeByPercent(setRange);
 
-                if (projectile)
-                {
-                    projectile.E_OnStop.AddListener(OnProjectileStopped);
-                    _currentProjectile = projectile; 
-                }
-                
-
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                LaunchBall();
+                chargeUp.EndCharge();
             }
 
             // Go to Map State
@@ -123,9 +114,30 @@ public class GameInputController : MonoBehaviour
 
     }
 
+    private void LaunchBall()
+    {
+        // Launch new projectile, and set proper game state
+        Rigidbody follow = _launchController.LaunchProjectile();
+        _camManager.SetProjectileCamera(follow);
+        _curGameState = GameState.PROJECTILE;
+
+        // Stop visualization
+        _launchController.SetTrajectoryVisible(false);
+
+        // Try and set up event for when the projectile stops
+        follow.TryGetComponent<DestructiveProjectile>(out DestructiveProjectile projectile);
+        if (projectile)
+        {
+            projectile.E_OnStop.AddListener(OnProjectileStopped);
+            _currentProjectile = projectile;
+        }
+    }
+
     private void GotoLaunchState()
     {
         _launchController.SetTrajectoryVisible(true);
+
+        chargeUp.ResetCharge();
 
         // This should probably be pooled
         if (_currentProjectile)
