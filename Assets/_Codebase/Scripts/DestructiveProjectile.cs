@@ -16,6 +16,8 @@ public class DestructiveProjectile : MonoBehaviour
     private Destroyer _destroyer;
     private SphereCollider sphereCollider;
 
+    private float _timePassed;
+
     public bool Stopped { get; private set; } = false; 
 
     // Start is called before the first frame update
@@ -30,7 +32,9 @@ public class DestructiveProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!Stopped && IsProjectileIneffectiveAndGrounded())
+        _timePassed += Time.fixedDeltaTime;
+
+        if (_timePassed > 1.0f && !Stopped && IsProjectileIneffectiveAndGrounded())
         {
             rb.velocity = Vector3.zero;
             E_OnStop.Invoke();

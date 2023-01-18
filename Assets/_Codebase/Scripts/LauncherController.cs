@@ -23,7 +23,9 @@ public class LauncherController : MonoBehaviour
     [SerializeField]
     private float _maxRange = 250.0f; 
 
-    private Rigidbody _currentBall; 
+    private Rigidbody _currentBall;
+
+    public event System.Action OnLaunchAction;
 
 
     // Update is called once per frame
@@ -54,6 +56,9 @@ public class LauncherController : MonoBehaviour
     public Rigidbody LaunchProjectile()
     {
         _currentBall = launcher.LaunchNewProjectile();
+
+        OnLaunchAction.Invoke();
+
         return _currentBall;
     }
 
