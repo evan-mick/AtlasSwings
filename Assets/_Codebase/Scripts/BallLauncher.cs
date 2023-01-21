@@ -12,7 +12,7 @@ public class BallLauncher : MonoBehaviour
 {
 
     public Rigidbody projectilePrefab;
-
+    public int numberStrokes { get; private set; } = 0;
     public Vector3 targetPosition; 
 
     [Range(1.0f, 20.0f)]
@@ -51,7 +51,7 @@ public class BallLauncher : MonoBehaviour
         // Magic happens!
         Vector3 f = Projectile.VelocityByHeight(b.position, targetPosition, currentHeight);
         b.AddForce(f, ForceMode.VelocityChange);
-
+        numberStrokes += 1;
         return b; 
 
         // Add some torque, not necessary, but interesting.

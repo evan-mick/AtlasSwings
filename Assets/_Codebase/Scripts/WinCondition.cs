@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class WinCondition : MonoBehaviour{
-    public float fadeDuration = 1f;
-    public float displayImageDuration = 1f;
-    public CanvasGroup exitBackgroundImageCanvasGroup;
     bool m_IsPlayerAtExit;
-    float m_Timer;
+    public GameObject timer;
+    public GameObject projectileLauncher;
+    public static int strokes;
+    public static int seconds;
 
     void OnTriggerEnter (Collider other)
     {
@@ -27,7 +28,10 @@ public class WinCondition : MonoBehaviour{
 
     void EndLevel ()
     {
-        m_Timer += Time.deltaTime;
-        exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
+        strokes = GameObject.Find("ProjectileCreator").GetComponent<BallLauncher>().numberStrokes;
+        seconds = GameObject.Find("Timer").GetComponent<Timer>().numSeconds;
+        PlayerPrefs.SetInt("strokes", strokes);
+        PlayerPrefs.SetInt("time", seconds);
+        SceneManager.LoadScene("TestWin");
     }
 }

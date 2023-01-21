@@ -2325,7 +2325,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1890493268}
         m_TargetAssemblyTypeName: SceneShifter, Assembly-CSharp
-        m_MethodName: Shift
+        m_MethodName: ShiftToPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

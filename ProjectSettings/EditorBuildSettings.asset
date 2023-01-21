@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Codebase/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_Codebase/Scenes/TestMenu.unity
+    guid: 43c858f39be09f44fb8ede6f6e92cb45
+  - enabled: 1
+    path: Assets/_Codebase/Scenes/JackTest.unity
+    guid: f6e7ff5ea17064147a7b257894205617
+  - enabled: 1
+    path: Assets/_Codebase/Scenes/TestWin.unity
+    guid: ae1bbdf8bcc482f4cb105861251d7a46
+  - enabled: 1
+    path: Assets/_Codebase/Scenes/TestLose.unity
+    guid: 4621960cc9b34e843b139ea6a38d907d
   m_configObjects: {}
