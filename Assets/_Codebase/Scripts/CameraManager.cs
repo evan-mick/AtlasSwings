@@ -8,6 +8,7 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera launchCamera;
     public CinemachineVirtualCamera projectileCamera;
     public CinemachineVirtualCamera mapCamera;
+    public CinemachineVirtualCamera winCamera;
 
 
     public Transform projectileCameraRelative;
@@ -97,11 +98,18 @@ public class CameraManager : MonoBehaviour
         projectileCamera.enabled = true;
     }
 
+    private void SetWinCamera()
+    {
+        DisableAllCameras();
+        winCamera.enabled = true;
+    }
+
     private void DisableAllCameras()
     {
         launchCamera.enabled = false;
         projectileCamera.enabled = false;
         mapCamera.enabled = false;
+        winCamera.enabled = false; 
 
 
         projectileCamera.transform.SetParent(projectileCameraRelative);
@@ -109,4 +117,6 @@ public class CameraManager : MonoBehaviour
         projectileCamera.transform.localRotation = _startingProjectileCamLocalRotation;
         projectileCamera.transform.SetParent(null);
     }
+
+    
 }
