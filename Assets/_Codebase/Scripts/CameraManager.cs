@@ -98,7 +98,7 @@ public class CameraManager : MonoBehaviour
         projectileCamera.enabled = true;
     }
 
-    private void SetWinCamera()
+    public void SetWinCamera()
     {
         DisableAllCameras();
         winCamera.enabled = true;
