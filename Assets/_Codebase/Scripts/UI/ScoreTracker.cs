@@ -15,6 +15,12 @@ public class ScoreTracker : MonoBehaviour
         SetAllDestructibleObjects();
     }
 
+    private void SaveToPlayerPrefs()
+    {
+        PlayerPrefs.SetInt("strokes", swings);
+        PlayerPrefs.SetFloat("time", timeElapsed);
+    }
+
     // Update is called once per frame
     void Update()
     {
