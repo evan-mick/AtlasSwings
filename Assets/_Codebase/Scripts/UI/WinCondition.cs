@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class WinCondition : MonoBehaviour{
     bool m_IsPlayerAtExit;
-    public GameObject timer;
-    public GameObject projectileLauncher;
     public static int strokes;
     public static int seconds;
 

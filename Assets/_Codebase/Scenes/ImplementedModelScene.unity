@@ -308,6 +308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NYBlock01
       objectReference: {fileID: 0}
+    - target: {fileID: 976263015752893631, guid: d83e12d2b1794e3409e9a5a963c77d84,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d83e12d2b1794e3409e9a5a963c77d84, type: 3}
 --- !u!1 &1581371718

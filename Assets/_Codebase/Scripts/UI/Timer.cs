@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Timer : MonoBehaviour
 {
-  [SerializeField] private TextMeshProUGUI _timerTextTMP;
-  [SerializeField] private TextMeshProUGUI _strokeTextTMP;
+  [SerializeField] private Text _timerTextTMP;
+  [SerializeField] private Text _strokeTextTMP;
   public static Timer Instance;
   public GameObject projectileLauncher;
 
@@ -40,6 +42,7 @@ public class Timer : MonoBehaviour
     else // no time left
     {
       _timeValue = 0;
+      loseGame();
     }
 
     displayTime(_timeValue);
@@ -56,5 +59,9 @@ public class Timer : MonoBehaviour
     numSeconds = Mathf.FloorToInt(timeToDisplay);
     _timerTextTMP.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     _strokeTextTMP.text = string.Format(projectileLauncher.GetComponent<BallLauncher>().numberStrokes.ToString());
-  }    
+  }  
+
+  private void loseGame(){
+    SceneManager.LoadScene("TestLose");
+  }  
 }
