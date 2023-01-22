@@ -53,7 +53,10 @@ public class Destroyer : MonoBehaviour
     {
         if (rb.velocity.magnitude > minimumDestructionVelocity)
         {
+            
             DestroyIt.Destructible destroyComponent = collideWith.GetComponent<DestroyIt.Destructible>();
+            if (destroyComponent == null)
+                destroyComponent = collideWith.GetComponentInParent<DestroyIt.Destructible>();
 
             if (destroyComponent != null && !_alreadyHit.Contains(destroyComponent))
             {
