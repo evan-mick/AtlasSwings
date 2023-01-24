@@ -29,7 +29,9 @@ public class ChargeUpController : MonoBehaviour
     // should the charge up stay at the max value, or reverse once its reached the max
     public bool reverseWhenAtMaxValue = true;
     private float _valueIncreaseMultiplier = 1.0f;
-    public bool reverse = false; 
+    public bool reverse = false;
+
+    [SerializeField] AudioSource audioSource;
     
 
     public void ResetCharge()
@@ -76,6 +78,11 @@ public class ChargeUpController : MonoBehaviour
         if (Charging)
         {
             _timeCharged += Time.deltaTime * _valueIncreaseMultiplier;
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(audioSource.clip);
+            }
 
             CheckForReverse();
         }

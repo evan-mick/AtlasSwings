@@ -32,6 +32,11 @@ public class GameInputController : MonoBehaviour
     [SerializeField]
     private float _resizeRate = 5000.0f;
 
+    [SerializeField] private AudioSource shiftAudio;
+    private bool isShifting;
+
+    [SerializeField] private AudioSource mapAudio;
+
     // Projectile mode
     private DestructiveProjectile _currentProjectile;
 
@@ -68,6 +73,16 @@ public class GameInputController : MonoBehaviour
 
             // Rotate Launch Controller
             float xMove = Input.GetAxis("Horizontal");
+            if (xMove == 0)
+            {
+                isShifting = false;
+            }
+            else if (!isShifting)
+            {
+                shiftAudio.Play();
+                isShifting = true;
+            }
+
             _launchController.RotateLauncher(xMove * Time.deltaTime * _rotateSpeed);
 
             // Set Range by charge value
@@ -84,6 +99,7 @@ public class GameInputController : MonoBehaviour
             // Go to Map State
             if (Input.GetKeyDown(KeyCode.M))
             {
+                mapAudio.Play();
                 _camManager.SetMapCamera(_launchController.transform.position);
                 _curGameState = GameState.MAP;
             }
