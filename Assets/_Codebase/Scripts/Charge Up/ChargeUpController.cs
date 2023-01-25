@@ -79,10 +79,14 @@ public class ChargeUpController : MonoBehaviour
         {
             _timeCharged += Time.deltaTime * _valueIncreaseMultiplier;
 
-            if (!audioSource.isPlaying)
+            if (audioSource != null)
             {
-                audioSource.PlayOneShot(audioSource.clip);
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(audioSource.clip);
+                }
             }
+           
 
             CheckForReverse();
         }

@@ -11,6 +11,7 @@ public class FloorBounce : MonoBehaviour
         var currentBounce = Time.time;
         if (other.tag == "Player" && currentBounce - lastBounce > .2)
         {
+            
             audioSource.Play();
         }
         lastBounce = currentBounce;

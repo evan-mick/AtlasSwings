@@ -79,7 +79,10 @@ public class GameInputController : MonoBehaviour
             }
             else if (!isShifting)
             {
-                shiftAudio.Play();
+                if (shiftAudio != null)
+                {
+                    shiftAudio.Play();
+                }
                 isShifting = true;
             }
 
@@ -99,7 +102,10 @@ public class GameInputController : MonoBehaviour
             // Go to Map State
             if (Input.GetKeyDown(KeyCode.M))
             {
-                mapAudio.Play();
+                if (mapAudio != null)
+                {
+                    mapAudio.Play();
+                }
                 _camManager.SetMapCamera(_launchController.transform.position);
                 _curGameState = GameState.MAP;
             }
@@ -128,6 +134,10 @@ public class GameInputController : MonoBehaviour
             // Go back to launch State
             if (Input.GetKeyDown(KeyCode.M))
             {
+                if (mapAudio != null)
+                {
+                    mapAudio.Play();
+                }
                 GotoLaunchState();
             }
         }
