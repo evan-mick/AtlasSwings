@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 
-public class WinCondition : MonoBehaviour{
+public class WinCondition : MonoBehaviour {
     private bool m_IsPlayerAtExit = false;
     public bool PlayerReachedGoal { get { return m_IsPlayerAtExit; } }
 

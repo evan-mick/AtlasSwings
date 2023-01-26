@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
   [SerializeField] private Text _strokeTextTMP;
   [SerializeField] private GameObject _loseScreen;
   public static Timer Instance;
-  public GameObject projectileLauncher;
+  public GameObject scoreController;
 
   private float _maxTimeValue = 120; // Do not change this! It is tied to the music
   private float _timeValue;
@@ -59,7 +59,7 @@ public class Timer : MonoBehaviour
     int seconds = Mathf.FloorToInt(timeToDisplay % 60);
     numSeconds = Mathf.FloorToInt(timeToDisplay);
     _timerTextTMP.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    _strokeTextTMP.text = string.Format(projectileLauncher.GetComponent<BallLauncher>().numberStrokes.ToString());
+    _strokeTextTMP.text = string.Format(scoreController.GetComponent<ScoreTracker>().swings.ToString());
   }  
 
   private void loseGame(){
