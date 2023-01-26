@@ -14,9 +14,6 @@ public class GameInputController : MonoBehaviour
     private CameraManager _camManager;
     [SerializeField]
     private LauncherController _launchController;
-    [SerializeField]
-    private GameObject _pauseMenu;
-
 
     [Header("Launcher Mode")]
     [SerializeField]
@@ -54,11 +51,6 @@ public class GameInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            Time.timeScale = 0;
-            _pauseMenu.SetActive(true);
-        }
-
         // Finite State Machine for control 
 
         // LAUNCH STATE

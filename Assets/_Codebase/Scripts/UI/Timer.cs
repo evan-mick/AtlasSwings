@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
 {
   [SerializeField] private Text _timerTextTMP;
   [SerializeField] private Text _strokeTextTMP;
+  [SerializeField] private GameObject _loseScreen;
   public static Timer Instance;
   public GameObject projectileLauncher;
 
@@ -62,6 +63,7 @@ public class Timer : MonoBehaviour
   }  
 
   private void loseGame(){
-    SceneManager.LoadScene("TestLose");
+    Time.timeScale = 0;
+    _loseScreen.SetActive(true);
   }  
 }

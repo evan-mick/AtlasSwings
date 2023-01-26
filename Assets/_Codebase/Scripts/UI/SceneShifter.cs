@@ -5,17 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneShifter : MonoBehaviour
 {
+    [SerializeField] private GameObject _loseScreen;
+    [SerializeField] private GameObject _winScreen;
 
     public void ShiftToPlay()
     {
         // Only specifying the sceneName or sceneBuildIndex will load the Scene with the Single mode
-        SceneManager.LoadScene("JackTest");
+        SceneManager.LoadScene("ImplementedModelScene");
     }
 
     public void ShiftToWin(){
-        SceneManager.LoadScene("TestWin");
+        _winScreen.SetActive(true);
+        Time.timeScale = 0;
+        //SceneManager.LoadScene("TestWin");
     }
     public void ShiftToLose(){
-        SceneManager.LoadScene("TestLose");
+        _loseScreen.SetActive(true);
+        Time.timeScale = 0;
+        //SceneManager.LoadScene("TestLose");
     }
 }
