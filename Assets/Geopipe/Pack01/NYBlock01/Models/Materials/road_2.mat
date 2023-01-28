@@ -88,8 +88,8 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_29C6AB4C: 0.9
-    - Vector1_46F4FBA0: 250
-    - Vector1_ADAD9479: 0.5
+    - Vector1_46F4FBA0: 20
+    - Vector1_ADAD9479: 0.236
     - Vector1_EE54776A: 4
     - _AlphaClip: 0
     - _Blend: 0
@@ -123,7 +123,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_DAC4E11B: {r: 1, g: 1, b: 1, a: 0}
+    - Color_DAC4E11B: {r: 1, g: 0.941032, b: 0.9386792, a: 0}
     - Vector2_CFCD19EF: {r: 100, g: 100, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
