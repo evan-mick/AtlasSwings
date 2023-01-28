@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: 79a2f8984ca577444b2f1c1526ef64d2
+<<<<<<< Updated upstream:Assets/Geopipe/Pack01/Other Models.meta
+guid: 0c373ada9c42cdd4db80e9e793aa490f
 folderAsset: yes
+=======
+guid: cac6ae411d057b046bbfc09ca0cfa238
+>>>>>>> Stashed changes:Assets/_Codebase/Scenes/MilesColor.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
