@@ -74,7 +74,7 @@ public class GameInputController : MonoBehaviour
         {
 
             // Launch ball when ready
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
             {
                 chargeUp.StartCharge();
             }
@@ -101,7 +101,7 @@ public class GameInputController : MonoBehaviour
                 //Input.GetAxis("Mouse ScrollWheel") * _scrollAddAmount * Time.deltaTime;
             _launchController.SetRangeByPercent(setRange);
 
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W))
             {
                 LaunchBall();
                 chargeUp.EndCharge();
@@ -127,7 +127,7 @@ public class GameInputController : MonoBehaviour
             bool destructiveProjectileSlowed = _currentProjectile == null;
 
             // Go back to launch State, placeholder until we add in bounce stuff
-            if (Input.GetKeyDown(KeyCode.Space) && destructiveProjectileSlowed)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && destructiveProjectileSlowed)
             {
                 GotoLaunchState();
             }
