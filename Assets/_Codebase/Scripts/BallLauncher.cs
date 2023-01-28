@@ -48,9 +48,24 @@ public class BallLauncher : MonoBehaviour
         // COPIED FROM THE ASSET's "ProjectileLauncher" CLASS
         Rigidbody b = Instantiate(projectilePrefab, transform.position, transform.rotation);
 
+        DestructiveProjectile destructiveProjectile = b.gameObject.GetComponent<DestructiveProjectile>();
+
+        //destructiveProjectile?.set
+
         // Magic happens!
         Vector3 f = Projectile.VelocityByHeight(b.position, targetPosition, currentHeight);
-        b.AddForce(f, ForceMode.VelocityChange);
+        
+        if (destructiveProjectile)
+        {
+            print("destructive proj");
+            destructiveProjectile.AddForceWithDelay(1.5f, f);
+        }
+        else
+        {
+            b.AddForce(f, ForceMode.VelocityChange);
+        }
+
+        
         numberStrokes += 1;
         return b; 
 
