@@ -33,6 +33,8 @@ public class GameInputController : MonoBehaviour
     private bool isShifting;
 
     [SerializeField] private AudioSource mapAudio;
+    [SerializeField] private AudioSource playMusic;
+
 
     // Projectile mode
     private DestructiveProjectile _currentProjectile;
@@ -51,6 +53,20 @@ public class GameInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playMusic != null)
+        {
+            if (!playMusic.isPlaying)
+            {
+                SoundManager.Instance.PlayMusic(playMusic);
+            }
+            else
+            {
+                var volume = SoundManager.Instance.GetMusicVolume();
+                playMusic.volume = volume;
+
+            }
+        }
+        
         // Finite State Machine for control 
 
         // LAUNCH STATE
@@ -73,7 +89,7 @@ public class GameInputController : MonoBehaviour
             {
                 if (shiftAudio != null)
                 {
-                    shiftAudio.Play();
+                    SoundManager.Instance.PlaySFX(shiftAudio);
                 }
                 isShifting = true;
             }
@@ -96,11 +112,13 @@ public class GameInputController : MonoBehaviour
             {
                 if (mapAudio != null)
                 {
-                    mapAudio.Play();
+                    SoundManager.Instance.PlaySFX(mapAudio);
                 }
                 _camManager.SetMapCamera(_launchController.transform.position);
                 _curGameState = GameState.MAP;
             }
+
+            
         }
         // PROJECTILE STATE
         else if (_curGameState.Equals(GameState.PROJECTILE))
@@ -128,7 +146,7 @@ public class GameInputController : MonoBehaviour
             {
                 if (mapAudio != null)
                 {
-                    mapAudio.Play();
+                    SoundManager.Instance.PlaySFX(mapAudio);
                 }
                 GotoLaunchState();
             }
