@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(ScoreTracker))]
 public class StatLoad : MonoBehaviour
 {
     [SerializeField] private Text _timerTextTMP;
     [SerializeField] private Text _strokeTextTMP;
     // Start is called before the first frame update
-    
+    private ScoreTracker _tracker;
+
+    private void Start()
+    {
+        _tracker = GetComponent<ScoreTracker>();
+    }
+
     public void LoadStrokes(){
-        _strokeTextTMP.text = this.transform.parent.GetComponent<ScoreTracker>().swings.ToString();
+        _strokeTextTMP.text = _tracker.swings.ToString();
     }
 
 
     public void LoadTime(){
-        float t = this.transform.parent.GetComponent<ScoreTracker>().timeElapsed;
+        float t = _tracker.timeElapsed;
         Debug.Log(t);
         int minutes = Mathf.FloorToInt(t / 60);
         int seconds = Mathf.FloorToInt(t % 60);
