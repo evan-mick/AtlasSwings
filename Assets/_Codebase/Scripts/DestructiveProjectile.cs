@@ -10,6 +10,8 @@ public class DestructiveProjectile : MonoBehaviour
     [SerializeField, Range(0.0f, 1.0f)]
     private float _onDestroySlowDownAmount = 0.5f;
 
+    public float setVelocityToZeroAmount = 2.0f; 
+
     public UnityEvent E_OnStop = new UnityEvent();
 
     private Rigidbody rb;
@@ -37,12 +39,27 @@ public class DestructiveProjectile : MonoBehaviour
     {
         _timePassed += Time.fixedDeltaTime;
 
-        if (_timePassed > 1.0f && !Stopped && IsProjectileIneffectiveAndGrounded())
+        if (_timePassed > 4.0f && !Stopped && IsProjectileIneffectiveAndGrounded())
         {
             rb.velocity = Vector3.zero;
             E_OnStop.Invoke();
             Stopped = true; 
         }   
+    }
+
+    public void AddForceWithDelay(float seconds, Vector3 force)
+    {
+        StartCoroutine(StartForce(seconds, force));
+    }
+
+    public IEnumerator StartForce(float seconds, Vector3 force)
+    {
+
+        yield return new WaitForSeconds(seconds);
+        print("seconds passed");
+        rb.AddForce(force, ForceMode.VelocityChange);
+        yield return null; 
+        //
     }
 
     public bool IsProjectileIneffectiveAndGrounded()
@@ -61,7 +78,7 @@ public class DestructiveProjectile : MonoBehaviour
                 //SoundManager.Instance.PlaySFX(bounceAudio);
             }
         // Check relatively still
-        bool returnBool = rb.velocity.magnitude < 1.0f && grounded;
+        bool returnBool = rb.velocity.magnitude < setVelocityToZeroAmount && grounded;
         sphereCollider.enabled = true;
 
         return returnBool;
@@ -70,7 +87,7 @@ public class DestructiveProjectile : MonoBehaviour
     public bool Grounded()
     {
         
-        return Physics.CheckSphere(rb.position + (Vector3.down * sphereCollider.radius * 1.1f), sphereCollider.radius * 0.3f);
+        return Physics.CheckSphere(rb.position + (Vector3.down * sphereCollider.radius * 1.1f * transform.localScale.y), sphereCollider.radius * 0.3f);
     }
 
     private void OnDrawGizmos()

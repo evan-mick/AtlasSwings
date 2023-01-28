@@ -17,7 +17,10 @@ public class LauncherController : MonoBehaviour
     private BallLauncher launcher;
 
     [SerializeField]
-    private Transform _teleportPoint; 
+    private Transform _teleportPoint;
+
+    [SerializeField]
+    private AtlasAnimationController _controller; 
 
     [SerializeField]
     private float _currentRange = 10.0f;
@@ -40,7 +43,9 @@ public class LauncherController : MonoBehaviour
     public void TeleportToPoint(Vector3 point)
     {
         Vector3 movement = point - _teleportPoint.position;
-        transform.position += movement; 
+        transform.position += movement;
+
+        _controller.ChangeAnimationState("NONE");
     }
 
     public void AddRange(float toAdd)
@@ -70,7 +75,36 @@ public class LauncherController : MonoBehaviour
 
         OnLaunchAction.Invoke();
 
+        SetAnimationFromVelocity(launcher.currentHeight);
+
         return _currentBall;
+    }
+
+
+
+
+    private void SetAnimationFromVelocity(float vel)
+    {
+        if (_controller != null)
+        {
+            if (vel > 15.0f)
+            {
+                _controller.ChangeAnimationState("HARD");
+            }
+            else if (vel > 12.0f)
+            {
+                _controller.ChangeAnimationState("LIGHT");
+            }
+            else if (vel > 8.0f)
+            {
+                _controller.ChangeAnimationState("MEDIUM");
+            }
+            else
+            {
+                _controller.ChangeAnimationState("HARD");
+            }
+
+        }
     }
 
 

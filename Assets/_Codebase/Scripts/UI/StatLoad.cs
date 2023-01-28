@@ -9,6 +9,7 @@ public class StatLoad : MonoBehaviour
 {
     [SerializeField] private Text _timerTextTMP;
     [SerializeField] private Text _strokeTextTMP;
+    [SerializeField] private Text _buildingsDestroyedTMP;
     // Start is called before the first frame update
     private ScoreTracker _tracker;
 
@@ -19,6 +20,10 @@ public class StatLoad : MonoBehaviour
 
     public void LoadStrokes(){
         _strokeTextTMP.text = _tracker.swings.ToString();
+    }
+
+    public void LoadDestroyed(){
+        _buildingsDestroyedTMP.text = _tracker.buildingsDestroyed.ToString();
     }
 
 
