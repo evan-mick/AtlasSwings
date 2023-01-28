@@ -22,6 +22,8 @@ public class DestructiveProjectile : MonoBehaviour
     [SerializeField] private AudioSource bounceAudio;
     [SerializeField] private AudioClip bounceClip;
 
+    private float lastBounce = 0f;
+
 
     public bool Stopped { get; private set; } = false; 
 
@@ -68,15 +70,25 @@ public class DestructiveProjectile : MonoBehaviour
         sphereCollider.enabled = false;
 
         bool grounded = Grounded();
+        bool bounced = Bounced();
+
         if (grounded)
+        {
             print("grounded");
-            if (bounceAudio != null)
+        }
+
+        if (bounced && (Time.time - lastBounce > .2))
+        {
+            if (bounceClip != null)
             {
-            AudioSource.PlayClipAtPoint(bounceClip, transform.position);
-            
-            //bounceAudio.Play();
-                //SoundManager.Instance.PlaySFX(bounceAudio);
+                //AudioSource.PlayClipAtPoint(bounceClip, sphereCollider.transform.position);
+                SoundManager.Instance.PlaySFXClip(bounceClip);
             }
+
+            lastBounce = Time.time;
+        }
+
+
         // Check relatively still
         bool returnBool = rb.velocity.magnitude < setVelocityToZeroAmount && grounded;
         sphereCollider.enabled = true;
@@ -86,9 +98,17 @@ public class DestructiveProjectile : MonoBehaviour
 
     public bool Grounded()
     {
-        
         return Physics.CheckSphere(rb.position + (Vector3.down * sphereCollider.radius * 1.1f * transform.localScale.y), sphereCollider.radius * 0.3f);
     }
+
+    public bool Bounced()
+    {
+        var center = rb.position + (Vector3.down * sphereCollider.radius * 1.1f) ;
+        var radius = sphereCollider.radius * 1.3f; // * 0.3f;
+
+        return Physics.CheckSphere(center, radius);
+    }
+
 
     private void OnDrawGizmos()
     {
