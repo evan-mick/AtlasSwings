@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
   public static Timer Instance;
   public GameObject scoreController;
 
-  private float _maxTimeValue = 120; // Do not change this! It is tied to the music
+  private float _maxTimeValue = 300; // Do not change this! It is tied to the music
   private float _timeValue;
   public int numSeconds { get; private set; }
 

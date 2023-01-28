@@ -126,6 +126,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Saturation: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -135,7 +136,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_DAC4E11B: {r: 0.13196868, g: 0.16776901, b: 0.20754719, a: 1}
+    - Color_DAC4E11B: {r: 0.7122642, g: 0.8485601, b: 1, a: 1}
     - Vector2_CFCD19EF: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[DisallowMultipleComponent]
 public class SpawnLocations : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<GameObject> _pooledObjects;
+    [SerializeField] private GameObject player;
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        int r = Random.Range(1,12);
+        Debug.Log(r);
+        player.transform.position = _pooledObjects[r].transform.position;
     }
+        
 }
