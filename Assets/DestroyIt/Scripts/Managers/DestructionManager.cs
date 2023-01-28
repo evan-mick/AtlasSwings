@@ -272,7 +272,7 @@ namespace DestroyIt
                     position = oldObj.centerPointOverride;
                 
                 // Convert the particle spawn point position to world coordinates.
-                position = oldObj.transform.TransformPoint(position);
+                position = oldObj.transform.TransformPoint(position); //THIS WAS CHANGED
 
                 // If no specific fallback particle effect is defined, use the default particle effect assigned in DestructionManager.
                 ParticleManager.Instance.PlayEffect(customParticle ?? defaultParticle, oldObj, position, oldObj.transform.rotation, instanceId);

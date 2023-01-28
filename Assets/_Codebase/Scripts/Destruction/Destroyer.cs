@@ -62,6 +62,7 @@ public class Destroyer : MonoBehaviour
             {
                 _alreadyHit.Add(destroyComponent);
 
+                destroyComponent.centerPointOverride = transform.position; 
                 destroyComponent.ApplyDamage(rb.velocity.magnitude);
 
                 if (destroyComponent.IsDestroyed)
