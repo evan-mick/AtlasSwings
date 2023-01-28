@@ -136,11 +136,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-<<<<<<< Updated upstream
     - Color_DAC4E11B: {r: 0.8679245, g: 0.7469544, b: 0.25710213, a: 0}
-=======
-    - Color_DAC4E11B: {r: 0.6981132, g: 0.2491187, b: 0.14159843, a: 0}
->>>>>>> Stashed changes
     - Vector2_CFCD19EF: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 0.9063317, g: 0.3853838, b: 0.16301587, a: 1}
     - _Color: {r: 0.9063317, g: 0.38538378, b: 0.16301584, a: 1}
