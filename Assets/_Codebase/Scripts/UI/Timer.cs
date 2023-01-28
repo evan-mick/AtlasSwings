@@ -4,13 +4,16 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
 
 
 public class Timer : MonoBehaviour
 {
   [SerializeField] private Text _timerTextTMP;
-  [SerializeField] private Text _strokeTextTMP;
-  [SerializeField] private GameObject _loseScreen;
+  [SerializeField] private Text _strokeTextTMP;  
+  
+  public UnityEvent E_OnLoseConditionMet = new UnityEvent();
   public static Timer Instance;
   public GameObject scoreController;
 
@@ -63,7 +66,7 @@ public class Timer : MonoBehaviour
   }  
 
   private void loseGame(){
+    E_OnLoseConditionMet.Invoke();
     Time.timeScale = 0;
-    _loseScreen.SetActive(true);
   }  
 }

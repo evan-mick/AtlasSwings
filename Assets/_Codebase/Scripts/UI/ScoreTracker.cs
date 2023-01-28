@@ -19,6 +19,7 @@ public class ScoreTracker : MonoBehaviour
     {
         PlayerPrefs.SetInt("strokes", swings);
         PlayerPrefs.SetFloat("time", timeElapsed);
+        PlayerPrefs.SetInt("destroyed", buildingsDestroyed);
     }
 
     // Update is called once per frame

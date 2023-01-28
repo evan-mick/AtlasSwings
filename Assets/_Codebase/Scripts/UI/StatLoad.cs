@@ -23,7 +23,7 @@ public class StatLoad : MonoBehaviour
     }
 
     public void LoadDestroyed(){
-        _strokeTextTMP.text = _tracker.buildingsDestroyed.ToString();
+        _buildingsDestroyedTMP.text = _tracker.buildingsDestroyed.ToString();
     }
 
 
