@@ -9,8 +9,8 @@ public class WinCondition : MonoBehaviour {
     public bool PlayerReachedGoal { get { return m_IsPlayerAtExit; } }
 
     public UnityEvent E_OnWinConditionMet = new UnityEvent();
-    public ScoreTracker scoreInformation; 
-
+    public ScoreTracker scoreInformation;
+    public AudioSource winAudio;
 
     //public static int strokes;
     //public static int seconds;
@@ -19,6 +19,11 @@ public class WinCondition : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            if (winAudio != null)
+            {
+
+                SoundManager.Instance.PlaySFX(winAudio);
+            }
             m_IsPlayerAtExit = true;
             E_OnWinConditionMet.Invoke();
         }
