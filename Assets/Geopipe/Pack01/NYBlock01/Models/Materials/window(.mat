@@ -124,7 +124,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_DAC4E11B: {r: 0.8550612, g: 0.9056604, b: 0.69547886, a: 0.24313726}
+    - Color_DAC4E11B: {r: 1, g: 0.96035194, b: 0.7882353, a: 0.24313726}
     - Vector2_CFCD19EF: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
