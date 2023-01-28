@@ -19,6 +19,9 @@ public class DestructiveProjectile : MonoBehaviour
     private SphereCollider sphereCollider;
 
     private float _timePassed;
+    [SerializeField] private AudioSource bounceAudio;
+    [SerializeField] private AudioClip bounceClip;
+
 
     public bool Stopped { get; private set; } = false; 
 
@@ -67,6 +70,13 @@ public class DestructiveProjectile : MonoBehaviour
         bool grounded = Grounded();
         if (grounded)
             print("grounded");
+            if (bounceAudio != null)
+            {
+            AudioSource.PlayClipAtPoint(bounceClip, transform.position);
+            
+            //bounceAudio.Play();
+                //SoundManager.Instance.PlaySFX(bounceAudio);
+            }
         // Check relatively still
         bool returnBool = rb.velocity.magnitude < setVelocityToZeroAmount && grounded;
         sphereCollider.enabled = true;

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class FloorBounce : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource bounceAudio;
     private float lastBounce;
     void OnTriggerEnter(Collider other)
     {
         var currentBounce = Time.time;
         if (other.tag == "Player" && currentBounce - lastBounce > .2)
         {
-            
-            audioSource.Play();
+            SoundManager.Instance.PlaySFX(bounceAudio);
         }
         lastBounce = currentBounce;
     }

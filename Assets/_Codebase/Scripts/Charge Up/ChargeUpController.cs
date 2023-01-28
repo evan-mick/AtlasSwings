@@ -31,7 +31,7 @@ public class ChargeUpController : MonoBehaviour
     private float _valueIncreaseMultiplier = 1.0f;
     public bool reverse = false;
 
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource chargeAudio;
     
 
     public void ResetCharge()
@@ -79,11 +79,11 @@ public class ChargeUpController : MonoBehaviour
         {
             _timeCharged += Time.deltaTime * _valueIncreaseMultiplier;
 
-            if (audioSource != null)
+            if (chargeAudio != null)
             {
-                if (!audioSource.isPlaying)
+                if (!chargeAudio.isPlaying)
                 {
-                    audioSource.PlayOneShot(audioSource.clip);
+                    SoundManager.Instance.PlaySFX(chargeAudio);
                 }
             }
            

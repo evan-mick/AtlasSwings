@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Geopipe/Pack01/NYBlock01/Models/Materials/_home_ubuntu_geopipe_assets_entity-models_sourcelowres_elm.mat.meta
-guid: ce8e4df5c27849d45b5c8ef1ee56ef51
-NativeFormatImporter:
-========
-guid: 79a2f8984ca577444b2f1c1526ef64d2
+guid: 0c373ada9c42cdd4db80e9e793aa490f
 folderAsset: yes
 DefaultImporter:
->>>>>>>> c51f8d2ae7aabbff9749fceb5b9f0f66b2d58ebf:Assets/Geopipe/Pack01/Other Models.meta
   externalObjects: {}
-  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
