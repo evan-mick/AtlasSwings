@@ -48,9 +48,21 @@ public class SoundManager : MonoBehaviour
 		source.Play();
 
 	}
+
+	public void PlaySFXClip(AudioClip clip)
+	{
+		if (!SFXSource.isPlaying)
+        {
+			SFXSource.clip = clip;
+			SFXSource.volume = SFXVolume;
+			SFXSource.Play();
+
+		}
+	}
 	// Play a single source through the music source.
 	public void PlayMusic(AudioSource source)
 	{
+		
 		source.volume = MusicVolume;
 		source.Play();
         //MusicSource.source = source;
