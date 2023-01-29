@@ -12,9 +12,10 @@ public class SoundManager : MonoBehaviour
 	private float MusicVolume = 1f ;
 	private float SFXVolume = 0.5f;
 
-	private AudioSource isPlaying;
-    
-    public void setSFXVolume(float volume)
+	private AudioSource musicPlaying;
+
+
+	public void setSFXVolume(float volume)
     {
 		//SFXSource.volume = volume;
 		SFXVolume = volume;
@@ -24,9 +25,9 @@ public class SoundManager : MonoBehaviour
 	{
 		//MusicSource.volume = volume;
 		MusicVolume = volume;
-		if (isPlaying != null)
+		if (musicPlaying != null)
         {
-			isPlaying.volume = volume;
+			musicPlaying.volume = volume;
         }
 	}
 
@@ -74,14 +75,14 @@ public class SoundManager : MonoBehaviour
 	// Play a single source through the music source.
 	public void PlayMusic(AudioSource source)
 	{
-		if (isPlaying != null)
+		if (musicPlaying != null)
         {
-			isPlaying.Pause();
+			musicPlaying.Pause();
         }	
 
 		source.volume = MusicVolume;
 		source.Play();
-		isPlaying = source;
+		musicPlaying = source;
 	}
 
 

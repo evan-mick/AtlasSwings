@@ -68,6 +68,13 @@ public class ChargeUpController : MonoBehaviour
     /// <returns>The charge value when it ended</returns>
     public float EndCharge()
     {
+        if (chargeAudio != null)
+        {
+            if (chargeAudio.isPlaying)
+            {
+                chargeAudio.Pause();
+            }
+        }
         if (contactAudio != null)
         {
             SoundManager.Instance.PlaySFX(contactAudio, 1.3f);
