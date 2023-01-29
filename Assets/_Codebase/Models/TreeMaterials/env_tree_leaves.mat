@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: env_tree_leaves
-  m_Shader: {fileID: -6465566751694194690, guid: 6d771e294c479074aa7500cba7804fa1,
+  m_Shader: {fileID: -6465566751694194690, guid: 50afd022e416a634d8f84f52299e6ddf,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -136,7 +136,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_DAC4E11B: {r: 0.754717, g: 0.5989593, b: 0.12388747, a: 0}
+    - Color_DAC4E11B: {r: 0.8490566, g: 0.67607135, b: 0.1393734, a: 0}
     - Vector2_CFCD19EF: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 0.9063317, g: 0.3853838, b: 0.16301587, a: 1}
     - _Color: {r: 0.9063317, g: 0.38538378, b: 0.16301584, a: 1}

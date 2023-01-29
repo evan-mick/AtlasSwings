@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: birck_3
-  m_Shader: {fileID: -6465566751694194690, guid: 6d771e294c479074aa7500cba7804fa1,
+  m_Shader: {fileID: -6465566751694194690, guid: 50afd022e416a634d8f84f52299e6ddf,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -103,7 +103,7 @@ Material:
     - Vector1_29C6AB4C: 0.9
     - Vector1_46F4FBA0: 250
     - Vector1_ADAD9479: 0.5
-    - Vector1_EE54776A: 2
+    - Vector1_EE54776A: 4
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -119,6 +119,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _Light_high: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
