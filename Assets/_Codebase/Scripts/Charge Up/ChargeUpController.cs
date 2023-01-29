@@ -70,7 +70,7 @@ public class ChargeUpController : MonoBehaviour
     {
         if (contactAudio != null)
         {
-            SoundManager.Instance.PlaySFXDelayed(contactAudio, 1.3f);
+            SoundManager.Instance.PlaySFX(contactAudio, 1.3f);
         }
         _charging = false;
         return _currentValue;
@@ -88,7 +88,7 @@ public class ChargeUpController : MonoBehaviour
             {
                 if (!chargeAudio.isPlaying)
                 {
-                    SoundManager.Instance.PlaySFX(chargeAudio);
+                    SoundManager.Instance.PlaySFX(chargeAudio, 0);
                 }
             }
            
