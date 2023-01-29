@@ -11,7 +11,8 @@ public class SpawnLocations : MonoBehaviour
 
     void Awake()
     {
-        int r = Random.Range(1,12);
+        //int r = Random.Range(0,11);
+        int r = 11;
         Debug.Log(r);
         player.transform.position = _pooledObjects[r].transform.position;
     }
