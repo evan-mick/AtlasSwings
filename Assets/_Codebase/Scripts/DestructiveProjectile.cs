@@ -19,10 +19,10 @@ public class DestructiveProjectile : MonoBehaviour
     private SphereCollider sphereCollider;
 
     private float _timePassed;
-    [SerializeField] private AudioSource bounceAudio;
     [SerializeField] private AudioClip bounceClip;
 
     private float lastBounce = 0f;
+    private int rolls = 0;
 
 
     public bool Stopped { get; private set; } = false; 
@@ -40,6 +40,11 @@ public class DestructiveProjectile : MonoBehaviour
     private void FixedUpdate()
     {
         _timePassed += Time.fixedDeltaTime;
+
+        if (_timePassed > 4.0f)
+        {
+            BounceBall();
+        }
 
         if (_timePassed > 4.0f && !Stopped && IsProjectileIneffectiveAndGrounded())
         {
@@ -64,30 +69,55 @@ public class DestructiveProjectile : MonoBehaviour
         //
     }
 
+    public void BounceBall()
+    {
+        // Disable so we don't check self
+        sphereCollider.enabled = false;
+        bool bounced = Bounced();
+        
+        // Ball is rolling 
+        if (bounced && rolls > 3)
+        {
+            // Play the sound less and less often as ball slows down
+            if (Time.time - lastBounce > 2 / rb.velocity.magnitude)
+            {
+                if (bounceClip != null)
+                {
+                    SoundManager.Instance.PlaySFXClip(bounceClip);
+                }
+                lastBounce = Time.time;
+            }
+        }
+        // Ball is bouncing
+        else if (bounced && (Time.time - lastBounce > .2))
+        {
+
+            if (bounceClip != null)
+            {
+                SoundManager.Instance.PlaySFXClip(bounceClip);
+            }
+
+            lastBounce = Time.time;
+            rolls = rolls + 1;
+        }
+
+        if (!bounced){rolls = 0;}
+        sphereCollider.enabled = true;
+    }
+
     public bool IsProjectileIneffectiveAndGrounded()
     {
         // Disable so we don't check self
         sphereCollider.enabled = false;
 
         bool grounded = Grounded();
-        bool bounced = Bounced();
 
-        if (grounded)
-        {
-            print("grounded");
-        }
+        //if (grounded)
+        //{
+        //    print("grounded");
+        //}
 
-        if (bounced && (Time.time - lastBounce > .2))
-        {
-            if (bounceClip != null)
-            {
-                //AudioSource.PlayClipAtPoint(bounceClip, sphereCollider.transform.position);
-                SoundManager.Instance.PlaySFXClip(bounceClip);
-            }
-
-            lastBounce = Time.time;
-        }
-
+        
 
         // Check relatively still
         bool returnBool = rb.velocity.magnitude < setVelocityToZeroAmount && grounded;

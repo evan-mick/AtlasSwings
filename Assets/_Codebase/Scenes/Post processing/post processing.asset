@@ -56,13 +56,13 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.074509814, g: 0.075038955, b: 0.16862746, a: 1}
+    m_Value: {r: 0.010039152, g: 0.11320752, b: 0.07640626, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.52
+    m_Value: 0.125
   smoothness:
     m_OverrideState: 1
     m_Value: 0.38
@@ -84,13 +84,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.5761431, y: 0.9772229, z: 1, w: 0}
+    m_Value: {x: 0.9294832, y: 1, z: 0.95336705, w: 0.03939738}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.96961796, y: 1, z: 0.98944336, w: 0}
+    m_Value: {x: 0.98024184, y: 1, z: 0.97758496, w: -0.16917738}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.9854483, y: 1, z: 0.43261182, w: 0}
+    m_Value: {x: 1, y: 0.9311267, z: 0.62562096, w: -0.11587487}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -163,20 +163,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   redOutRedIn:
-    m_OverrideState: 0
-    m_Value: 174
+    m_OverrideState: 1
+    m_Value: 132
   redOutGreenIn:
     m_OverrideState: 0
     m_Value: -199
   redOutBlueIn:
     m_OverrideState: 1
-    m_Value: -40
+    m_Value: -21
   greenOutRedIn:
     m_OverrideState: 1
-    m_Value: -2
+    m_Value: -7
   greenOutGreenIn:
-    m_OverrideState: 0
-    m_Value: 111
+    m_OverrideState: 1
+    m_Value: 105
   greenOutBlueIn:
     m_OverrideState: 0
     m_Value: 32
@@ -185,10 +185,10 @@ MonoBehaviour:
     m_Value: -82
   blueOutGreenIn:
     m_OverrideState: 1
-    m_Value: -11
+    m_Value: -21
   blueOutBlueIn:
-    m_OverrideState: 0
-    m_Value: 200
+    m_OverrideState: 1
+    m_Value: 105
 --- !u!114 &1912935509285295355
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -213,19 +213,19 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.005037783
+          time: 0.036529683
           value: 0
-          inSlope: 1.4078014
-          outSlope: 1.4078014
+          inSlope: 0.88669527
+          outSlope: 0.88669527
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.6195122
-          value: 1
-          inSlope: 3.142203
-          outSlope: 3.142203
+          time: 0.83561647
+          value: 0.9426577
+          inSlope: 0.20179337
+          outSlope: 0.20179337
           tangentMode: 0
           weightedMode: 0
           inWeight: 0

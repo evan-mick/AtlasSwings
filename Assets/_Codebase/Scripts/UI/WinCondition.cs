@@ -22,7 +22,7 @@ public class WinCondition : MonoBehaviour {
             if (winAudio != null)
             {
 
-                SoundManager.Instance.PlaySFX(winAudio);
+                SoundManager.Instance.PlaySFX(winAudio, 0);
             }
             m_IsPlayerAtExit = true;
             E_OnWinConditionMet.Invoke();

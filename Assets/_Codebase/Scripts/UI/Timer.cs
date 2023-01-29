@@ -11,13 +11,14 @@ using UnityEngine.Events;
 public class Timer : MonoBehaviour
 {
   [SerializeField] private Text _timerTextTMP;
-  [SerializeField] private Text _strokeTextTMP;  
+  [SerializeField] private Text _strokeTextTMP;
+    [SerializeField] private AudioSource loseMusic;
   
   public UnityEvent E_OnLoseConditionMet = new UnityEvent();
   public static Timer Instance;
   public GameObject scoreController;
 
-  private float _maxTimeValue = 300; // Do not change this! It is tied to the music
+    private float _maxTimeValue = 300; // Do not change this! It is tied to the music
   private float _timeValue;
   public int numSeconds { get; private set; }
 
@@ -66,7 +67,15 @@ public class Timer : MonoBehaviour
   }  
 
   private void loseGame(){
-    E_OnLoseConditionMet.Invoke();
+        if (loseMusic != null)
+        {
+            if (!loseMusic.isPlaying)
+            {
+                SoundManager.Instance.PlayMusic(loseMusic);
+            }
+        }
+
+        E_OnLoseConditionMet.Invoke();
     Time.timeScale = 0;
   }  
 }

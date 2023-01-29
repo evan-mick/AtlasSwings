@@ -59,12 +59,7 @@ public class GameInputController : MonoBehaviour
             {
                 SoundManager.Instance.PlayMusic(playMusic);
             }
-            else
-            {
-                var volume = SoundManager.Instance.GetMusicVolume();
-                playMusic.volume = volume;
-
-            }
+            
         }
         
         // Finite State Machine for control 
@@ -89,7 +84,7 @@ public class GameInputController : MonoBehaviour
             {
                 if (shiftAudio != null)
                 {
-                    SoundManager.Instance.PlaySFX(shiftAudio);
+                    SoundManager.Instance.PlaySFX(shiftAudio, 0);
                 }
                 isShifting = true;
             }
@@ -112,7 +107,7 @@ public class GameInputController : MonoBehaviour
             {
                 if (mapAudio != null)
                 {
-                    SoundManager.Instance.PlaySFX(mapAudio);
+                    SoundManager.Instance.PlaySFX(mapAudio, 0);
                 }
                 _camManager.SetMapCamera(_launchController.transform.position);
                 _curGameState = GameState.MAP;
@@ -146,7 +141,7 @@ public class GameInputController : MonoBehaviour
             {
                 if (mapAudio != null)
                 {
-                    SoundManager.Instance.PlaySFX(mapAudio);
+                    SoundManager.Instance.PlaySFX(mapAudio, 0);
                 }
                 GotoLaunchState();
             }

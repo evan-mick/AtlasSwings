@@ -7,10 +7,15 @@ using UnityEngine.SceneManagement;
 public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private AudioSource menuAudio;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (menuAudio != null)
+            {
+                SoundManager.Instance.PlaySFX(menuAudio, 0);
+            }
             _pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }

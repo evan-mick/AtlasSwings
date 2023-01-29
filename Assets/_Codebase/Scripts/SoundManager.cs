@@ -7,12 +7,12 @@ public class SoundManager : MonoBehaviour
 	// Singleton instance.
 	public static SoundManager Instance = null;
 	
-	public AudioSource MusicSource;
 	public AudioSource SFXSource;
 
 	private float MusicVolume = 1f ;
 	private float SFXVolume = 0.5f;
 
+	private AudioSource isPlaying;
     
     public void setSFXVolume(float volume)
     {
@@ -24,7 +24,12 @@ public class SoundManager : MonoBehaviour
 	{
 		//MusicSource.volume = volume;
 		MusicVolume = volume;
+		if (isPlaying != null)
+        {
+			isPlaying.volume = volume;
+        }
 	}
+
 	// Initialize the singleton instance.
 	private void Awake()
 	{
@@ -42,11 +47,17 @@ public class SoundManager : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 	// Play a single clip through the sound effects source.
-	public void PlaySFX(AudioSource source)
+	public void PlaySFX(AudioSource source, float delay)
 	{
-		source.volume = SFXVolume;
-		source.Play();
-
+		if (delay == 0)
+        {
+			source.volume = SFXVolume;
+			source.Play();
+        }
+        else
+        {
+			source.PlayDelayed(delay);
+		}
 	}
 
 	public void PlaySFXClip(AudioClip clip)
@@ -59,24 +70,23 @@ public class SoundManager : MonoBehaviour
 
 		}
 	}
+
 	// Play a single source through the music source.
 	public void PlayMusic(AudioSource source)
 	{
-		
+		if (isPlaying != null)
+        {
+			isPlaying.Pause();
+        }	
+
 		source.volume = MusicVolume;
 		source.Play();
-        //MusicSource.source = source;
-        //MusicSource.Play();
+		isPlaying = source;
 	}
-	
-	public void SetSourceVolume(AudioSource source)
-    {
-		source.volume = MusicVolume;
-    }
 
-	public float GetMusicVolume()
-    {
-		return MusicVolume;
-    }
+
+  
+
+
 
 }
