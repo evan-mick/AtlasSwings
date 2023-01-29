@@ -19,7 +19,6 @@ public class DestructiveProjectile : MonoBehaviour
     private SphereCollider sphereCollider;
 
     private float _timePassed;
-    [SerializeField] private AudioSource bounceAudio;
     [SerializeField] private AudioClip bounceClip;
 
     private float lastBounce = 0f;
