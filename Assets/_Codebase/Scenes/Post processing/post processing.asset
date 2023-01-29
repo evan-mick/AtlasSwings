@@ -84,13 +84,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.9147988, y: 1, z: 0.949042, w: 0.03939738}
+    m_Value: {x: 0.9294832, y: 1, z: 0.95336705, w: 0.03939738}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.9985722, y: 1, z: 0.96562606, w: -0.16917738}
+    m_Value: {x: 0.98024184, y: 1, z: 0.97758496, w: -0.16917738}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9586523, z: 0.4144826, w: -0.11587487}
+    m_Value: {x: 1, y: 0.9311267, z: 0.62562096, w: -0.11587487}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -213,19 +213,19 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.005037783
+          time: 0.036529683
           value: 0
-          inSlope: 1.4078014
-          outSlope: 1.4078014
+          inSlope: 0.88669527
+          outSlope: 0.88669527
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.6195122
-          value: 1
-          inSlope: 3.142203
-          outSlope: 3.142203
+          time: 0.83561647
+          value: 0.9426577
+          inSlope: 0.20179337
+          outSlope: 0.20179337
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
