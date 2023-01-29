@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DestroyIt
 {
@@ -32,6 +33,10 @@ namespace DestroyIt
         public int withinSeconds = 4;
         [Tooltip("The default particle effect to use when an object is destroyed.")]
         public ParticleSystem defaultParticle;
+
+        public UnityEvent E_OnExplode = new UnityEvent();
+
+
         [Tooltip("If damage done to an object is more than this many times its hit points, it will be obliterated into a particle effect if CanBeObliterated=true.")]
         public int obliterateMultiplier = 3;
         [Tooltip("If true, persistent debris is allowed to be culled even if the camera is currently rendering it.")]
@@ -258,6 +263,8 @@ namespace DestroyIt
 
         private void DestroyWithParticleEffect<T>(Destructible oldObj, ParticleSystem customParticle, T damageInfo)
         {
+            E_OnExplode.Invoke();
+            Debug.Log("pew pew pew");
             if (oldObj.useFallbackParticle)
             {
                 // Use the DestructibleGroup instance ID if it exists, otherwise use the Destructible object's parent's instance ID.
