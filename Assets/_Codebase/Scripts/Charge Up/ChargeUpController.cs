@@ -31,8 +31,9 @@ public class ChargeUpController : MonoBehaviour
     private float _valueIncreaseMultiplier = 1.0f;
     public bool reverse = false;
 
-    [SerializeField] AudioSource chargeAudio;
-    
+    [SerializeField] private AudioSource chargeAudio;
+    [SerializeField] private AudioSource contactAudio;
+
 
     public void ResetCharge()
     {
@@ -67,6 +68,10 @@ public class ChargeUpController : MonoBehaviour
     /// <returns>The charge value when it ended</returns>
     public float EndCharge()
     {
+        if (contactAudio != null)
+        {
+            SoundManager.Instance.PlaySFXDelayed(contactAudio, 1.3f);
+        }
         _charging = false;
         return _currentValue;
     }

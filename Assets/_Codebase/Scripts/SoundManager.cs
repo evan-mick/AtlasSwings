@@ -59,24 +59,30 @@ public class SoundManager : MonoBehaviour
 
 		}
 	}
+
 	// Play a single source through the music source.
 	public void PlayMusic(AudioSource source)
 	{
 		
 		source.volume = MusicVolume;
 		source.Play();
-        //MusicSource.source = source;
-        //MusicSource.Play();
 	}
-	
-	public void SetSourceVolume(AudioSource source)
+
+	public void PlaySFXDelayed(AudioSource source, float delay)
     {
-		source.volume = MusicVolume;
+		source.PlayDelayed(delay);
+    }
+	
+	//public void SetSourceVolume(AudioSource source)
+ //   {
+	//	source.volume = MusicVolume;
+ //   }
+
+    public float GetMusicVolume()
+    {
+        return MusicVolume;
     }
 
-	public float GetMusicVolume()
-    {
-		return MusicVolume;
-    }
+
 
 }
