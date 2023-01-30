@@ -10,7 +10,7 @@ public class WinCondition : MonoBehaviour {
 
     public UnityEvent E_OnWinConditionMet = new UnityEvent();
     public ScoreTracker scoreInformation;
-    public AudioSource winAudio;
+    public AudioSource winMusic;
 
     //public static int strokes;
     //public static int seconds;
@@ -19,11 +19,11 @@ public class WinCondition : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            if (winAudio != null)
-            {
-
-                SoundManager.Instance.PlaySFX(winAudio);
-            }
+            //if (winMusic != null)
+            //{
+            //    print("hello?");
+            //    SoundManager.Instance.PlayMusic(winMusic);
+            //}
             m_IsPlayerAtExit = true;
             E_OnWinConditionMet.Invoke();
         }

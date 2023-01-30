@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: env_tree_trunk 1
-  m_Shader: {fileID: -6465566751694194690, guid: 6d771e294c479074aa7500cba7804fa1,
+  m_Shader: {fileID: -6465566751694194690, guid: 50afd022e416a634d8f84f52299e6ddf,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

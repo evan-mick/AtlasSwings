@@ -92,8 +92,6 @@ MonoBehaviour:
   E_OnStop:
     m_PersistentCalls:
       m_Calls: []
-  bounceAudio: {fileID: 2136450854192894953, guid: ea2c3daa595305c40b409956034a0aa0,
-    type: 3}
   bounceClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
 --- !u!114 &1152221269983570278
 MonoBehaviour:

@@ -7,24 +7,29 @@ public class SoundManager : MonoBehaviour
 	// Singleton instance.
 	public static SoundManager Instance = null;
 	
-	public AudioSource MusicSource;
 	public AudioSource SFXSource;
 
 	private float MusicVolume = 1f ;
 	private float SFXVolume = 0.5f;
 
-    
-    public void setSFXVolume(float volume)
+
+	private AudioSource musicPlaying;
+	private AudioSource SFXPlaying;
+
+	public void setSFXVolume(float volume)
     {
-		//SFXSource.volume = volume;
 		SFXVolume = volume;
     }
 
 	public void setMusicVolume(float volume)
 	{
-		//MusicSource.volume = volume;
 		MusicVolume = volume;
+		if (musicPlaying != null)
+        {
+			musicPlaying.volume = volume;
+        }
 	}
+
 	// Initialize the singleton instance.
 	private void Awake()
 	{
@@ -42,11 +47,26 @@ public class SoundManager : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 	// Play a single clip through the sound effects source.
-	public void PlaySFX(AudioSource source)
+	public void PlaySFX(AudioSource source, float delay)
 	{
-		source.volume = SFXVolume;
-		source.Play();
+		if (delay == 0)
+        {
+			source.volume = SFXVolume;
+			source.Play();
+        }
+        else
+        {
+			source.PlayDelayed(delay);
+		}
+	}
 
+	
+	public void PlaySFXButton(AudioSource source)
+	{
+		
+			source.volume = SFXVolume;
+			source.Play();
+		
 	}
 
 	public void PlaySFXClip(AudioClip clip)
@@ -60,29 +80,50 @@ public class SoundManager : MonoBehaviour
 		}
 	}
 
+
+
 	// Play a single source through the music source.
 	public void PlayMusic(AudioSource source)
 	{
-		
+		if (musicPlaying != null)
+        {
+			musicPlaying.Stop();
+        }	
+
 		source.volume = MusicVolume;
 		source.Play();
+		musicPlaying = source;
 	}
 
-	public void PlaySFXDelayed(AudioSource source, float delay)
+	public void SaveSFX(AudioSource source)
     {
-		source.PlayDelayed(delay);
+		SFXPlaying = source;
     }
-	
-	//public void SetSourceVolume(AudioSource source)
- //   {
-	//	source.volume = MusicVolume;
- //   }
-
-    public float GetMusicVolume()
+  
+	public IEnumerator FadeOutSFX()
     {
-        return MusicVolume;
+		if (SFXSource != null){
+			var targetVolume = 0;
+			var duration = .5f;
+
+			float currentTime = 0;
+			float start = SFXPlaying.volume;
+			while (currentTime < duration)
+			{
+				currentTime += Time.deltaTime;
+				SFXPlaying.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+				yield return null;
+			}
+			
+			SFXSource = null;
+			yield break;
+
+		}
+	}
+
+	public void SFXInterrupt()
+    {
+		SFXPlaying.Stop();
     }
-
-
 
 }

@@ -33,6 +33,7 @@ public class ChargeUpController : MonoBehaviour
 
     [SerializeField] private AudioSource chargeAudio;
     [SerializeField] private AudioSource contactAudio;
+    [SerializeField] private AudioSource flightAudio;
 
 
     public void ResetCharge()
@@ -68,11 +69,32 @@ public class ChargeUpController : MonoBehaviour
     /// <returns>The charge value when it ended</returns>
     public float EndCharge()
     {
+        if (chargeAudio != null)
+        {
+            if (chargeAudio.isPlaying)
+            {
+                chargeAudio.Pause();
+            }
+        }
         if (contactAudio != null)
         {
-            SoundManager.Instance.PlaySFXDelayed(contactAudio, 1.3f);
+            SoundManager.Instance.PlaySFX(contactAudio, 1.3f);
         }
+
+        if (_currentValue > .5)
+        {
+            print("power threshold met");
+        }
+
+        if (flightAudio != null && _currentValue > .5)
+        {
+            SoundManager.Instance.PlaySFX(flightAudio, 1f);
+            SoundManager.Instance.SaveSFX(flightAudio);
+        }
+
         _charging = false;
+        print("charge value");
+        print(_currentValue);
         return _currentValue;
     }
 
@@ -88,7 +110,7 @@ public class ChargeUpController : MonoBehaviour
             {
                 if (!chargeAudio.isPlaying)
                 {
-                    SoundManager.Instance.PlaySFX(chargeAudio);
+                    SoundManager.Instance.PlaySFX(chargeAudio, 0);
                 }
             }
            
