@@ -29,11 +29,12 @@ public class GameInputController : MonoBehaviour
     [SerializeField]
     private float _resizeRate = 5000.0f;
 
-    [SerializeField] private AudioSource shiftAudio;
+    [SerializeField] private AudioSource shuffleAudio;
     private bool isShifting;
 
     [SerializeField] private AudioSource mapAudio;
     [SerializeField] private AudioSource playMusic;
+    [SerializeField] private AudioSource flightAudio;
 
 
     // Projectile mode
@@ -67,7 +68,7 @@ public class GameInputController : MonoBehaviour
         // LAUNCH STATE
         if (_curGameState.Equals(GameState.LAUNCH))
         {
-
+            
             // Launch ball when ready
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
             {
@@ -82,9 +83,9 @@ public class GameInputController : MonoBehaviour
             }
             else if (!isShifting)
             {
-                if (shiftAudio != null)
+                if (shuffleAudio != null)
                 {
-                    SoundManager.Instance.PlaySFX(shiftAudio, 0);
+                    SoundManager.Instance.PlaySFX(shuffleAudio, 0);
                 }
                 isShifting = true;
             }

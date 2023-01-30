@@ -21,6 +21,7 @@ public class DestructiveProjectile : MonoBehaviour
     private float _timePassed;
     [SerializeField] private AudioClip bounceClip;
 
+
     private float lastBounce = 0f;
     private int rolls = 0;
 
@@ -43,7 +44,9 @@ public class DestructiveProjectile : MonoBehaviour
 
         if (_timePassed > 4.0f)
         {
+
             BounceBall();
+            
         }
 
         if (_timePassed > 4.0f && !Stopped && IsProjectileIneffectiveAndGrounded())
@@ -75,9 +78,14 @@ public class DestructiveProjectile : MonoBehaviour
         sphereCollider.enabled = false;
         bool bounced = Bounced();
         
+        if (rolls > 0)
+        {
+            SoundManager.Instance.FadeOutSFX();
+        }
         // Ball is rolling 
         if (bounced && rolls > 3)
         {
+
             // Play the sound less and less often as ball slows down
             if (Time.time - lastBounce > 2 / rb.velocity.magnitude)
             {
@@ -147,6 +155,8 @@ public class DestructiveProjectile : MonoBehaviour
 
     private void OnHitDestroyable()
     {
-        rb.velocity *= _onDestroySlowDownAmount; 
+
+        SoundManager.Instance.SFXInterrupt();
+        rb.velocity *= _onDestroySlowDownAmount;
     }
 }

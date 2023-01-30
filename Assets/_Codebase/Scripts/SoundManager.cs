@@ -12,18 +12,17 @@ public class SoundManager : MonoBehaviour
 	private float MusicVolume = 1f ;
 	private float SFXVolume = 0.5f;
 
-	private AudioSource musicPlaying;
 
+	private AudioSource musicPlaying;
+	private AudioSource SFXPlaying;
 
 	public void setSFXVolume(float volume)
     {
-		//SFXSource.volume = volume;
 		SFXVolume = volume;
     }
 
 	public void setMusicVolume(float volume)
 	{
-		//MusicSource.volume = volume;
 		MusicVolume = volume;
 		if (musicPlaying != null)
         {
@@ -61,6 +60,15 @@ public class SoundManager : MonoBehaviour
 		}
 	}
 
+	
+	public void PlaySFXButton(AudioSource source)
+	{
+		
+			source.volume = SFXVolume;
+			source.Play();
+		
+	}
+
 	public void PlaySFXClip(AudioClip clip)
 	{
 		if (!SFXSource.isPlaying)
@@ -72,12 +80,14 @@ public class SoundManager : MonoBehaviour
 		}
 	}
 
+
+
 	// Play a single source through the music source.
 	public void PlayMusic(AudioSource source)
 	{
 		if (musicPlaying != null)
         {
-			musicPlaying.Pause();
+			musicPlaying.Stop();
         }	
 
 		source.volume = MusicVolume;
@@ -85,9 +95,35 @@ public class SoundManager : MonoBehaviour
 		musicPlaying = source;
 	}
 
-
+	public void SaveSFX(AudioSource source)
+    {
+		SFXPlaying = source;
+    }
   
+	public IEnumerator FadeOutSFX()
+    {
+		if (SFXSource != null){
+			var targetVolume = 0;
+			var duration = .5f;
 
+			float currentTime = 0;
+			float start = SFXPlaying.volume;
+			while (currentTime < duration)
+			{
+				currentTime += Time.deltaTime;
+				SFXPlaying.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+				yield return null;
+			}
+			
+			SFXSource = null;
+			yield break;
 
+		}
+	}
+
+	public void SFXInterrupt()
+    {
+		SFXPlaying.Stop();
+    }
 
 }
