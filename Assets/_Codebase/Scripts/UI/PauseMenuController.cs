@@ -12,10 +12,14 @@ public class PauseMenuController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuAudio != null)
-            {
-                SoundManager.Instance.PlaySFX(menuAudio, 0);
+            if (! _pauseMenu.active){
+                if (menuAudio != null)
+                {
+                    SoundManager.Instance.PlaySFX(menuAudio, 0);
+                }
             }
+            
+
             _pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
