@@ -27,6 +27,11 @@ public class CameraManager : MonoBehaviour
     private Quaternion _startingProjectileCamLocalRotation;
     private Rigidbody followRb;
 
+    [SerializeField]
+    private GameObject _winLocationUIObject;
+    [SerializeField]
+    private GameObject _winLocation;
+
 
     private void Start()
     {
@@ -66,6 +71,15 @@ public class CameraManager : MonoBehaviour
         DisableAllCameras();
         mapCamera.m_Lens.OrthographicSize = _defaultMapCameraSize;
         mapCamera.enabled = true;
+
+
+        if (_winLocationUIObject != null && _winLocation != null)
+        {
+            _winLocationUIObject.transform.parent = null;
+            _winLocationUIObject.transform.position =
+                new Vector3(_winLocation.transform.position.x, mapCamera.transform.position.y - 2.0f,
+                    _winLocation.transform.position.z);
+        }
     }
 
     public void ResizeMapCamera(float amount)
@@ -109,7 +123,12 @@ public class CameraManager : MonoBehaviour
         launchCamera.enabled = false;
         projectileCamera.enabled = false;
         mapCamera.enabled = false;
-        winCamera.enabled = false; 
+        winCamera.enabled = false;
+
+        if (_winLocationUIObject != null)
+        {
+            _winLocationUIObject.transform.parent = mapCamera.transform;
+        }
 
 
         projectileCamera.transform.SetParent(projectileCameraRelative);
