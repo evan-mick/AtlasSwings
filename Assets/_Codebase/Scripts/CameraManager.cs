@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class CameraManager : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class CameraManager : MonoBehaviour
     private float _maxMapCameraSize = 30.0f;
     [SerializeField]
     private float _minMapCameraSize = 5.0f;
+    [SerializeField]
+    Volume volume; 
+
+    DepthOfField dof;
 
 
     private Vector3 _startingProjectileCamLocalPosition;
@@ -40,6 +46,8 @@ public class CameraManager : MonoBehaviour
         _startingProjectileCamLocalPosition = projectileCamera.transform.localPosition;
         _startingProjectileCamLocalRotation = projectileCamera.transform.localRotation;
         projectileCamera.transform.SetParent(null);
+
+        volume.profile.TryGet(out dof);
 
         SetLaunchCamera();
     }
@@ -71,6 +79,9 @@ public class CameraManager : MonoBehaviour
         DisableAllCameras();
         mapCamera.m_Lens.OrthographicSize = _defaultMapCameraSize;
         mapCamera.enabled = true;
+
+        if (dof != null)
+            dof.active = false; 
 
 
         if (_winLocationUIObject != null && _winLocation != null)
@@ -124,6 +135,9 @@ public class CameraManager : MonoBehaviour
         projectileCamera.enabled = false;
         mapCamera.enabled = false;
         winCamera.enabled = false;
+        if (dof != null)
+            dof.active = true;
+
 
         if (_winLocationUIObject != null)
         {

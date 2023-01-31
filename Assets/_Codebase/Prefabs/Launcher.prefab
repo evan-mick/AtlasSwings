@@ -221,7 +221,7 @@ MonoBehaviour:
   _teleportPoint: {fileID: 6300568674827191069}
   _controller: {fileID: 7461914602290725386}
   _currentRange: 10
-  _maxRange: 150
+  _maxRange: 250
   OnLaunchAction:
     m_PersistentCalls:
       m_Calls: []
@@ -245,6 +245,8 @@ MonoBehaviour:
   _defaultMapCameraSize: 200
   _maxMapCameraSize: 400
   _minMapCameraSize: 20
+  _winLocationUIObject: {fileID: 0}
+  _winLocation: {fileID: 0}
 --- !u!114 &6300568674444576202
 MonoBehaviour:
   m_ObjectHideFlags: 0

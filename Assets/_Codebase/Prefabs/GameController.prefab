@@ -47,12 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camManager: {fileID: 0}
   _launchController: {fileID: 0}
-  _pauseMenu: {fileID: 0}
   _rotateSpeed: 120
   _scrollAddAmount: 10000
   chargeUp: {fileID: 0}
-  _moveSpeed: 30
+  _moveSpeed: 100
   _resizeRate: 5000
+  shuffleAudio: {fileID: 0}
+  mapAudio: {fileID: 0}
+  playMusic: {fileID: 0}
+  flightAudio: {fileID: 0}
 --- !u!114 &7286035032196413152
 MonoBehaviour:
   m_ObjectHideFlags: 0
