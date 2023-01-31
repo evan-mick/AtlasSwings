@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -581,7 +581,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1.19
   Loop: 0
@@ -709,7 +709,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1045,7 +1045,7 @@ RectTransform:
   m_GameObject: {fileID: 489421741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 38783638}
@@ -1307,7 +1307,7 @@ RectTransform:
   m_GameObject: {fileID: 701003466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.12, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1367088803}
@@ -1795,7 +1795,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1175754886}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2055,7 +2055,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1.56
   Loop: 0
@@ -2609,8 +2609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32336d2c94686c54b91834da5a49f075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loseScreen: {fileID: 0}
-  _winScreen: {fileID: 0}
 --- !u!1 &1890493264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,8 +2738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32336d2c94686c54b91834da5a49f075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loseScreen: {fileID: 0}
-  _winScreen: {fileID: 0}
 --- !u!114 &1890493269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2873,7 +2869,7 @@ RectTransform:
   m_GameObject: {fileID: 2121464952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.12, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1082936348}

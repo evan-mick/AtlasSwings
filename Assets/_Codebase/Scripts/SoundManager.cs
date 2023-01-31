@@ -23,9 +23,11 @@ public class SoundManager : MonoBehaviour
 
 	public void setMusicVolume(float volume)
 	{
+		print("hello????");
 		MusicVolume = volume;
 		if (musicPlaying != null)
         {
+			print("hello?");
 			musicPlaying.volume = volume;
         }
 	}

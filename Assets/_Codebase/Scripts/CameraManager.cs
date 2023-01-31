@@ -24,7 +24,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField]
     private float _minMapCameraSize = 5.0f;
     [SerializeField]
-    Volume volume; 
+    Volume volume;
+
 
     DepthOfField dof;
 
@@ -71,7 +72,9 @@ public class CameraManager : MonoBehaviour
     public void SetMapCamera(Vector3 lookOver)
     {
         mapCamera.transform.position = new Vector3(lookOver.x, 500, lookOver.z);
+
         SetMapCamera();
+        
     }
 
     public void SetMapCamera()

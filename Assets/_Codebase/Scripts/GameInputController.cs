@@ -34,8 +34,15 @@ public class GameInputController : MonoBehaviour
 
     [SerializeField] private AudioSource mapAudio;
     [SerializeField] private AudioSource playMusic;
+    [SerializeField] private AudioSource winMusic;
+    [SerializeField] private AudioSource loseMusic;
     [SerializeField] private AudioSource flightAudio;
 
+    [SerializeField] private GameObject _winMenu;
+    [SerializeField] private GameObject _loseMenu;
+
+
+    [SerializeField] private GameObject playerLocation;
 
     // Projectile mode
     private DestructiveProjectile _currentProjectile;
@@ -56,11 +63,19 @@ public class GameInputController : MonoBehaviour
     {
         if (playMusic != null)
         {
-            if (!playMusic.isPlaying)
+            if (!playMusic.isPlaying && !_loseMenu.activeInHierarchy && !_winMenu.activeInHierarchy) 
             {
                 SoundManager.Instance.PlayMusic(playMusic);
+            } else if (!loseMusic.isPlaying &&  _loseMenu.activeInHierarchy) {
+
+                SoundManager.Instance.PlayMusic(loseMusic);
             }
-            
+            else if (!winMusic.isPlaying && _winMenu.activeInHierarchy)
+            {
+
+                SoundManager.Instance.PlayMusic(winMusic);
+            }
+
         }
         
         // Finite State Machine for control 
@@ -112,6 +127,7 @@ public class GameInputController : MonoBehaviour
                 }
                 _camManager.SetMapCamera(_launchController.transform.position);
                 _curGameState = GameState.MAP;
+                playerLocation.SetActive(true);
             }
 
             
@@ -145,6 +161,13 @@ public class GameInputController : MonoBehaviour
                     SoundManager.Instance.PlaySFX(mapAudio, 0);
                 }
                 GotoLaunchState();
+
+
+                playerLocation.SetActive(false);
+                Vector3 position = playerLocation.transform.position;
+                position.y = 100;
+                playerLocation.transform.position = position;
+
             }
         }
 

@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
 {
   [SerializeField] private Text _timerTextTMP;
   [SerializeField] private Text _strokeTextTMP;
-    [SerializeField] private AudioSource playMusic;
+    [SerializeField] private AudioSource loseMusic;
   
   public UnityEvent E_OnLoseConditionMet = new UnityEvent();
   public static Timer Instance;
@@ -68,8 +68,6 @@ public class Timer : MonoBehaviour
 
   private void loseGame(){
         
-        SoundManager.Instance.StopMusic(playMusic);
-
         E_OnLoseConditionMet.Invoke();
     Time.timeScale = 0;
   }  
