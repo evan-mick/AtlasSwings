@@ -123,7 +123,10 @@ public class SoundManager : MonoBehaviour
 
 	public void SFXInterrupt()
     {
+		if (SFXPlaying != null){
 		SFXPlaying.Stop();
+
+		}
     }
 
 }
