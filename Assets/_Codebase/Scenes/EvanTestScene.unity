@@ -3436,11 +3436,27 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 520846897}
+    - target: {fileID: 3906886071435878762, guid: 2a11b1607da89874cbaaa7a15fd905aa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -200.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906886071435878762, guid: 2a11b1607da89874cbaaa7a15fd905aa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a11b1607da89874cbaaa7a15fd905aa, type: 3}
 --- !u!4 &1543631228902307035 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1543631229719390690, guid: 2a11b1607da89874cbaaa7a15fd905aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1543631228902307034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1543631228902307036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4347905430620410004, guid: 2a11b1607da89874cbaaa7a15fd905aa,
     type: 3}
   m_PrefabInstance: {fileID: 1543631228902307034}
   m_PrefabAsset: {fileID: 0}
@@ -3463,6 +3479,11 @@ PrefabInstance:
       objectReference: {fileID: 1216099040}
     - target: {fileID: 6300568674444576245, guid: 90e72e767f8847c41b658c1a9fef6716,
         type: 3}
+      propertyPath: _winLocation
+      value: 
+      objectReference: {fileID: 1890441637}
+    - target: {fileID: 6300568674444576245, guid: 90e72e767f8847c41b658c1a9fef6716,
+        type: 3}
       propertyPath: launchCamera
       value: 
       objectReference: {fileID: 657002330}
@@ -3471,6 +3492,11 @@ PrefabInstance:
       propertyPath: projectileCamera
       value: 
       objectReference: {fileID: 1300855388}
+    - target: {fileID: 6300568674444576245, guid: 90e72e767f8847c41b658c1a9fef6716,
+        type: 3}
+      propertyPath: _winLocationUIObject
+      value: 
+      objectReference: {fileID: 1543631228902307036}
     - target: {fileID: 6300568674444576246, guid: 90e72e767f8847c41b658c1a9fef6716,
         type: 3}
       propertyPath: m_Name
