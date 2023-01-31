@@ -220,6 +220,7 @@ MonoBehaviour:
   launcher: {fileID: 6300568672977759960}
   _teleportPoint: {fileID: 6300568674827191069}
   _controller: {fileID: 7461914602290725386}
+  _ballVisual: {fileID: 5161133223065488678}
   _currentRange: 10
   _maxRange: 250
   OnLaunchAction:
@@ -245,6 +246,7 @@ MonoBehaviour:
   _defaultMapCameraSize: 200
   _maxMapCameraSize: 400
   _minMapCameraSize: 20
+  volume: {fileID: 0}
   _winLocationUIObject: {fileID: 0}
   _winLocation: {fileID: 0}
 --- !u!114 &6300568674444576202
@@ -408,17 +410,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 141850457532eaa4ea2a2e9c7bcdb65d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 141850457532eaa4ea2a2e9c7bcdb65d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 141850457532eaa4ea2a2e9c7bcdb65d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 141850457532eaa4ea2a2e9c7bcdb65d,
         type: 3}
@@ -478,10 +480,16 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 141850457532eaa4ea2a2e9c7bcdb65d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141850457532eaa4ea2a2e9c7bcdb65d, type: 3}
+--- !u!1 &5161133223065488678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 141850457532eaa4ea2a2e9c7bcdb65d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5431744137378672759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5542761255921080220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 141850457532eaa4ea2a2e9c7bcdb65d,

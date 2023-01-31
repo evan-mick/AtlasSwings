@@ -20,7 +20,10 @@ public class LauncherController : MonoBehaviour
     private Transform _teleportPoint;
 
     [SerializeField]
-    private AtlasAnimationController _controller; 
+    private AtlasAnimationController _controller;
+
+    [SerializeField]
+    private GameObject _ballVisual; 
 
     [SerializeField]
     private float _currentRange = 10.0f;
@@ -71,16 +74,22 @@ public class LauncherController : MonoBehaviour
 
     public Rigidbody LaunchProjectile()
     {
+
+        _ballVisual?.SetActive(false);
         _currentBall = launcher.LaunchNewProjectile();
 
         OnLaunchAction.Invoke();
+        
 
         SetAnimationFromVelocity(launcher.currentHeight);
 
         return _currentBall;
     }
 
-
+    public void ShowVisualizer()
+    {
+        _ballVisual?.SetActive(true);
+    }
 
 
     private void SetAnimationFromVelocity(float vel)

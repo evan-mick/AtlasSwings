@@ -174,6 +174,7 @@ public class GameInputController : MonoBehaviour
     private void GotoLaunchState()
     {
         _launchController.SetTrajectoryVisible(true);
+        _launchController.ShowVisualizer();
 
         chargeUp.ResetCharge();
 
