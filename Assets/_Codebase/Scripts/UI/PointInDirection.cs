@@ -14,6 +14,6 @@ public class PointInDirection : MonoBehaviour
     {
         dir = target.transform.position - transform.position;
         angle = Mathf.Atan2(dir.x, dir.z)*Mathf.Rad2Deg;
-        arrow.transform.eulerAngles = new Vector3(90, 0, -angle);
+        arrow.transform.eulerAngles = new Vector3(90, 0, angle-50);
     }
 }

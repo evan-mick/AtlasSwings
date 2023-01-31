@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneShifter : MonoBehaviour
 {
-    [SerializeField] private GameObject _loseScreen;
-    [SerializeField] private GameObject _winScreen;
 
     public void ShiftToPlay()
     {
@@ -14,15 +12,8 @@ public class SceneShifter : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("ImplementedModelScene");
     }
-
-    public void ShiftToWin(){
-        _winScreen.SetActive(true);
-        Time.timeScale = 0;
-        //SceneManager.LoadScene("TestWin");
-    }
-    public void ShiftToLose(){
-        _loseScreen.SetActive(true);
-        Time.timeScale = 0;
-        //SceneManager.LoadScene("TestLose");
+    
+    public void Quit(){
+        Application.Quit();
     }
 }
