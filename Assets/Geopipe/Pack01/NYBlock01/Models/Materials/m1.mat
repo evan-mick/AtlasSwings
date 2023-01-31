@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: m1
-  m_Shader: {fileID: -6465566751694194690, guid: 6d771e294c479074aa7500cba7804fa1,
+  m_Shader: {fileID: -6465566751694194690, guid: 50afd022e416a634d8f84f52299e6ddf,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -35,7 +35,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_DC6DF663:
-        m_Texture: {fileID: 2800000, guid: 3e93d63f96c95084bb0ebf322601c868, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -103,7 +103,7 @@ Material:
     - Vector1_29C6AB4C: 0.9
     - Vector1_46F4FBA0: 250
     - Vector1_ADAD9479: 0.5
-    - Vector1_EE54776A: 2
+    - Vector1_EE54776A: 4
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -136,7 +136,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_DAC4E11B: {r: 0.7122642, g: 0.8485601, b: 1, a: 1}
+    - Color_DAC4E11B: {r: 0.98039216, g: 0.8352941, b: 0.69803923, a: 1}
     - Vector2_CFCD19EF: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

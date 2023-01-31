@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 1.19
   scatter:
     m_OverrideState: 1
-    m_Value: 0.428
+    m_Value: 0.31
   clamp:
     m_OverrideState: 1
     m_Value: 65473.6
@@ -84,13 +84,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.9294832, y: 1, z: 0.95336705, w: 0.03939738}
+    m_Value: {x: 1, y: 0.97831035, z: 0.9237877, w: 0.03939738}
   midtones:
     m_OverrideState: 1
     m_Value: {x: 0.98024184, y: 1, z: 0.97758496, w: -0.16917738}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9311267, z: 0.62562096, w: -0.11587487}
+    m_Value: {x: 1, y: 0.9779426, z: 0.82199347, w: -0.11587487}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -222,10 +222,10 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.83561647
-          value: 0.9426577
-          inSlope: 0.20179337
-          outSlope: 0.20179337
+          time: 0.86743045
+          value: 0.9157507
+          inSlope: -0.062169306
+          outSlope: -0.062169306
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   mode:
     m_OverrideState: 1
     m_Value: 2
@@ -408,13 +408,13 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 7.5
   aperture:
     m_OverrideState: 1
-    m_Value: 24.2
+    m_Value: 24
   focalLength:
     m_OverrideState: 1
-    m_Value: 209
+    m_Value: 15
   bladeCount:
     m_OverrideState: 1
     m_Value: 6
@@ -442,13 +442,13 @@ MonoBehaviour:
     m_Value: 0.5
   contrast:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -15
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0.8443396, b: 0.84583414, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: -1

@@ -46,7 +46,34 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2354477476967503203, guid: bbab4c8a6d7cb9f419c8896b37af5bcb,
+  m_Motion: {fileID: -3487625300857299269, guid: 6e90a70e24d62d249a2ee86e396aa081,
+    type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1056614632996676659
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player_Rig|Golf Idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7894214056288058700, guid: 6e90a70e24d62d249a2ee86e396aa081,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -95,7 +122,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6353867015311882599, guid: bbab4c8a6d7cb9f419c8896b37af5bcb,
+  m_Motion: {fileID: -7087188747667976321, guid: 6e90a70e24d62d249a2ee86e396aa081,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -122,7 +149,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 7894214056288058700, guid: 6e90a70e24d62d249a2ee86e396aa081,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -148,7 +176,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5569963498954593113, guid: bbab4c8a6d7cb9f419c8896b37af5bcb,
+  m_Motion: {fileID: -2234981450959151194, guid: 6e90a70e24d62d249a2ee86e396aa081,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -175,7 +203,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 4764711643709639096, guid: bbab4c8a6d7cb9f419c8896b37af5bcb,
+  m_Motion: {fileID: -1735675251126114055, guid: 6e90a70e24d62d249a2ee86e396aa081,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -209,6 +237,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 2547011896967844593}
     m_Position: {x: 340, y: 140, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1056614632996676659}
+    m_Position: {x: 492.93375, y: 156.7433, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

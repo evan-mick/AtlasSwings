@@ -80,7 +80,7 @@ public class DestructiveProjectile : MonoBehaviour
         
         if (rolls > 0)
         {
-            SoundManager.Instance.FadeOutSFX();
+            SoundManager.Instance?.FadeOutSFX();
         }
         // Ball is rolling 
         if (bounced && rolls > 3)
@@ -102,7 +102,7 @@ public class DestructiveProjectile : MonoBehaviour
 
             if (bounceClip != null)
             {
-                SoundManager.Instance.PlaySFXClip(bounceClip);
+                SoundManager.Instance?.PlaySFXClip(bounceClip);
             }
 
             lastBounce = Time.time;
