@@ -25,12 +25,7 @@ public class WinCondition : MonoBehaviour {
             {
                 _otherBody = other.GetComponent<Rigidbody>();
             }
-            //if (winMusic != null)
-            //{
-            //    print("hello?");
-            //    SoundManager.Instance.PlayMusic(winMusic);
-            //}
-
+           
             if (_otherBody != null && _otherBody.velocity.magnitude < 1.0f)
             {
 

@@ -34,7 +34,13 @@ public class GameInputController : MonoBehaviour
 
     [SerializeField] private AudioSource mapAudio;
     [SerializeField] private AudioSource playMusic;
+    [SerializeField] private AudioSource winMusic;
+    [SerializeField] private AudioSource loseMusic;
     [SerializeField] private AudioSource flightAudio;
+
+    [SerializeField] private GameObject _winMenu;
+    [SerializeField] private GameObject _loseMenu;
+
 
 
     // Projectile mode
@@ -56,11 +62,19 @@ public class GameInputController : MonoBehaviour
     {
         if (playMusic != null)
         {
-            if (!playMusic.isPlaying)
+            if (!playMusic.isPlaying && !_loseMenu.activeInHierarchy && !_winMenu.activeInHierarchy) 
             {
                 SoundManager.Instance.PlayMusic(playMusic);
+            } else if (!loseMusic.isPlaying &&  _loseMenu.activeInHierarchy) {
+
+                SoundManager.Instance.PlayMusic(loseMusic);
             }
-            
+            else if (!winMusic.isPlaying && _winMenu.activeInHierarchy)
+            {
+
+                SoundManager.Instance.PlayMusic(winMusic);
+            }
+
         }
         
         // Finite State Machine for control 
