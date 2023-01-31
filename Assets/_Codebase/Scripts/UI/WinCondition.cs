@@ -24,6 +24,7 @@ public class WinCondition : MonoBehaviour {
             //    print("hello?");
             //    SoundManager.Instance.PlayMusic(winMusic);
             //}
+
             m_IsPlayerAtExit = true;
             E_OnWinConditionMet.Invoke();
         }
