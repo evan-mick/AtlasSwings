@@ -42,6 +42,7 @@ public class GameInputController : MonoBehaviour
     [SerializeField] private GameObject _loseMenu;
 
 
+    [SerializeField] private GameObject playerLocation;
 
     // Projectile mode
     private DestructiveProjectile _currentProjectile;
@@ -126,6 +127,7 @@ public class GameInputController : MonoBehaviour
                 }
                 _camManager.SetMapCamera(_launchController.transform.position);
                 _curGameState = GameState.MAP;
+                playerLocation.SetActive(true);
             }
 
             
@@ -159,6 +161,13 @@ public class GameInputController : MonoBehaviour
                     SoundManager.Instance.PlaySFX(mapAudio, 0);
                 }
                 GotoLaunchState();
+
+
+                playerLocation.SetActive(false);
+                Vector3 position = playerLocation.transform.position;
+                position.y = 100;
+                playerLocation.transform.position = position;
+
             }
         }
 
